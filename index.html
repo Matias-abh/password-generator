@@ -8,14 +8,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="password_container">
-        <h2>Random Password Generator</h2>
-        <div class="password_input_container">
-            <input type="text" id="input" class="input" placeholder="Create password" readonly>
-            <i class="fa-regular fa-copy"></i>
+    <div class="password-container">
+
+        <h2 class="password-container__title">Random Password Generator</h2>
+
+        <div class="password-container__input-container">
+            <input type="text" id="input" class="password-container__input" placeholder="Create password" readonly>
+            <i class="fa-regular fa-copy password-container__input-ico"></i>
         </div>
-        <button class="btn">Generate</button>
+
+        <button class="password-container__btn">Generate</button>
+
     </div>
+
     <div class="alert_container"></div>
     
 </body>

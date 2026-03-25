@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(36, 43, 61);
+    color: #fff;
+    font-family: Google Sans, Arial, Helvetica, sans-serif;
+    
+    /* width: 100%;
+    height: 20vh; */
+    
+}
+
+
+.password-container {
+    background-color: #7f41a0;
+    /* border: 1px solid crimson; */
+    width: 70%;
+    /* height: 15em; */
+    margin: 5.4em auto;
+    text-align: center;
+    padding: 2.8em 1.8em 0;
+    border-radius: 14px;
+    /* align-items: flex-start; */
+
+    box-shadow: 6px 6px 20px #171717;
+}
+
+.password-container__title {
+    font-size: 1.7em;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
+
+.password-container__input {
+    width: 86%;
+    height: 2.8em;
+    border-radius: 12px;
+    font-size: 1.5em;
+
+}
+
+.password-container__btn {
+    background-color: rgba(22, 0, 22, 0.53);
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: thin;
+    padding: .6em 2.8em;
+    margin: 1em 0;
+    border-radius: 12px;
+
+    cursor: pointer;
+}
+
+.password-container__input-ico {
+    font-size: 1.8em;
+    margin-left: .5em;
+}
