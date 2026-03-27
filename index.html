@@ -6,22 +6,24 @@
     <title>Random Password Generator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="password-container">
-
-        <h2 class="password-container__title">Random Password Generator</h2>
-
-        <div class="password-container__input-container">
-            <input type="text" id="input" class="password-container__input" placeholder="Create password" readonly>
-            <i class="fa-regular fa-copy password-container__input-ico"></i>
-        </div>
-
-        <button class="password-container__btn">Generate</button>
-
+    <div class="app">
+        <section class="password-generator">
+            <h2 class="password-generator__title">Password Generator</h2>
+            
+            <div class="password-generator__result">
+                <input type="text" id="input" class="password-generator__input" placeholder="Create password" readonly>
+                <i class="password-generator__icon fa-regular fa-copy"></i>
+            </div>
+            <button class="password-generator__generate-btn">Generate</button>
+        </section>
+        <div class="alert_generator"></div>
     </div>
 
-    <div class="alert_container"></div>
-    
+        <script type="text/javascript" src="main.js"></script>        
 </body>
 </html>
