@@ -141,6 +141,48 @@ body {
 
 
 
+/***** CONTROLS *****/
+
+.password-generator__controls {
+    padding: 2.2rem 0;
+}
+
+.password-generator__length {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+#length {
+    width: 70%;
+}
+
+
+
+.password-generator__settings-title {    
+    margin-top: 2rem;
+}
+
+.password-generator__settings {
+    display: flex;
+    flex-direction: column;
+    padding: 1.8rem;
+    gap: 1rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+/***** GENERATE BUTTON *****/
+
 .password-generator__generate-btn {
     font-size: var(--text-lg);
     color: var(--color-text);
