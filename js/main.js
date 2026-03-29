@@ -9,6 +9,7 @@ const uiElements = {
     numberCheckbox: document.getElementById('include-number'),
     symbolCheckbox: document.getElementById('include-symbol'),
     
+    optionCheckboxes: document.querySelectorAll('.option-checkbox'),
 };
 
 
@@ -16,11 +17,6 @@ const UPPERCASE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const LOWERCASE_CHARACTERS = "abcdefghijklmnopqrstuvwxtz";
 const NUMBER_CHARACTERS = "0123456789";
 const SYMBOL_CHARACTERS = "!@#$%^&*()_+?:{}[]<>/";
-
-/*
-MIN_PASSWORD_LENGTH: 8
-MAX_PASSWORD_LENGTH: 32
-*/
 
 
 const generatePassword = (passwordLength, includeUppercase, includeLowercase, includeNumber, includeSymbol) => {
@@ -31,8 +27,7 @@ const generatePassword = (passwordLength, includeUppercase, includeLowercase, in
     if (includeLowercase) allowed += LOWERCASE_CHARACTERS;
     if (includeNumber) allowed += NUMBER_CHARACTERS;
     if (includeSymbol) allowed += SYMBOL_CHARACTERS;
-    if (allowed === '') return alert('Debes seleccionar al menos una opción');
-    
+        
     let generatedPassword = "";
     
     for (let i = 0; i < passwordLength; i++) {
@@ -41,6 +36,20 @@ const generatePassword = (passwordLength, includeUppercase, includeLowercase, in
     };
     return generatedPassword;
 };
+
+
+const updateGenerateBtnState = () => {
+    const isAtLeastOneChecked = Array.from(uiElements.optionCheckboxes).some((checkbox) => {
+        return checkbox.checked;
+    });
+    uiElements.generateBtn.disabled = !isAtLeastOneChecked;
+    uiElements.generateBtn.classList.toggle('generate-btn-active', isAtLeastOneChecked);
+};
+
+uiElements.optionCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', updateGenerateBtnState);
+});
+
 
 
 const handleGenerateClick = () => {
@@ -73,66 +82,9 @@ async function copyToClipboard (text) {
 
 async function handleCopyClick () {
     const passwordToCopy = uiElements.passwordDisplay.value;
-    const isSuccessful = await copyToClipboard(passwordToCopy);
-    
-    
+    if (!passwordToCopy) return;
+    const isSuccessful = await copyToClipboard(passwordToCopy);    
 
 };
 
 uiElements.copyBtn.addEventListener('click', handleCopyClick);
-
-/* ********************************************************** */
-
-// const createPassword = () => {
-//     const chars = "0123456789abcdefghijklmnopqrstuvwxtz!@#$%^&*()_+?:{}[]ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-//     const passwordLength = "14";
-//     let password = "";
-    
-//     for (let i = 0; i < passwordLength; i++) {
-//         const randomNum = Math.floor(Math.random() * chars.length);
-//         password += chars[randomNum];
-//     };
-//     input.value = password;
-// };
-
-
-/* 
-    const createPassword = () => {
-    const chars = "0123456789abcdefghijklmnopqrstuvwxtz!@#$%^&*()_+?:{}[]ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const passwordLength = "14";
-    let password = "";
-    
-    for (let i = 0; i < passwordLength; i++) {
-        const randomNum = Math.floor(Math.random() * chars.length);
-        password += chars.substring(randomNum, randomNum + 1);
-    };
-    input.value = password; 
-};
-
-generateBtn.addEventListener('click', createPassword);
-
-
-const copyPassword = () => {
-    input.select();
-
-    // selection on mobile
-    input.setSelectionRange(0, 9999);
-
-    // copy password to clipboard
-    navigator.clipboard.writeText(input.value);
-};
-
-icon.addEventListener('click', copyPassword);
- */
-
-
-/* *********************************** */
-
-/* 
-passwordDisplay: El campo donde se muestra la clave generada.
-
-handleGenerateClick: Cuando el usuario presiona "Generar".
-handleLengthChange: Cuando el usuario mueve el slider de longitud.
-handleCopySuccess: Qué sucede después de copiar con éxito. */
-
-

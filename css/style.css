@@ -203,11 +203,15 @@ body {
 
 }
 
-.password-generator__generate-btn:active {
+.generate-btn-active:active {
     transform: scale(.96);
 }
 
-
+.password-generator__generate-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
 
 
 
