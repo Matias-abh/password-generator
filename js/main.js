@@ -72,17 +72,25 @@ uiElements.generateBtn.addEventListener('click', handleGenerateClick);
 /* *************** feedback copy **************** */
 
 
-const showCopyFeedback = () => {
-    
-    uiElements.copyBtn.classList.add('copy-success');
+const showCopyFeedback = (generatedPassword) => {
 
+    const originalPlaceholder = uiElements.passwordDisplay.placeholder;
+    uiElements.passwordDisplay.value = "";
+    uiElements.passwordDisplay.placeholder = "Copied!";
+    uiElements.copyBtn.classList.add('copy-success');
+    uiElements.passwordDisplay.classList.add('copy-success-input');
+
+    
     setTimeout(() => {
         uiElements.copyBtn.classList.remove('copy-success');
-    }, 400);
+        uiElements.passwordDisplay.classList.remove('copy-success-input');
+        uiElements.passwordDisplay.value = generatedPassword;
+        uiElements.passwordDisplay.placeholder = originalPlaceholder;
+    }, 800);
 };
 
 
-/* *************** copy logic **************** */
+/* *************** copy password **************** */
 
 async function copyToClipboard (text) {
     try {
@@ -98,7 +106,7 @@ async function handleCopyClick () {
     const passwordToCopy = uiElements.passwordDisplay.value;
     if (!passwordToCopy) return;
     const isSuccessful = await copyToClipboard(passwordToCopy);
-    if (isSuccessful) showCopyFeedback();
+    if (isSuccessful) showCopyFeedback(passwordToCopy);
 
 };
 
