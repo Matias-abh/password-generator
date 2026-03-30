@@ -141,6 +141,24 @@ body {
 
 
 
+
+.password-generator__copy-btn {
+    transition: transform 0.1s ease, color 0.1s ease;
+}
+
+/* Cuando el botón tiene la clase de éxito */
+
+.copy-success {
+    color: #2ecc71;
+    transform: rotate(360deg) scale(1.08);
+}
+
+/* 
+.icon-active {
+    display: block;
+} */
+
+
 /***** CONTROLS *****/
 
 .password-generator__controls {

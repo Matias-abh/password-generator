@@ -68,6 +68,20 @@ const handleGenerateClick = () => {
 uiElements.generateBtn.addEventListener('click', handleGenerateClick);
 
 
+
+/* *************** feedback copy **************** */
+
+
+const showCopyFeedback = () => {
+    
+    uiElements.copyBtn.classList.add('copy-success');
+
+    setTimeout(() => {
+        uiElements.copyBtn.classList.remove('copy-success');
+    }, 400);
+};
+
+
 /* *************** copy logic **************** */
 
 async function copyToClipboard (text) {
@@ -83,7 +97,8 @@ async function copyToClipboard (text) {
 async function handleCopyClick () {
     const passwordToCopy = uiElements.passwordDisplay.value;
     if (!passwordToCopy) return;
-    const isSuccessful = await copyToClipboard(passwordToCopy);    
+    const isSuccessful = await copyToClipboard(passwordToCopy);
+    if (isSuccessful) showCopyFeedback();
 
 };
 
