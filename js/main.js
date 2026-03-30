@@ -2,6 +2,8 @@ const uiElements = {
     generateBtn: document.querySelector(".password-generator__generate-btn"),
     passwordDisplay: document.querySelector(".password-generator__password-display"),
     copyBtn: document.querySelector(".password-generator__copy-btn"),
+    displayPasswordLength: document.querySelector(".display-password-length"),
+    passwordSlider: document.getElementById('password-length'),
 
     lengthSlider: document.getElementById('password-length'),
     uppercaseCheckbox: document.getElementById('include-uppercase'),
@@ -18,6 +20,8 @@ const LOWERCASE_CHARACTERS = "abcdefghijklmnopqrstuvwxtz";
 const NUMBER_CHARACTERS = "0123456789";
 const SYMBOL_CHARACTERS = "!@#$%^&*()_+?:{}[]<>/";
 
+
+/* ****************** generate password ******************* */
 
 const generatePassword = (passwordLength, includeUppercase, includeLowercase, includeNumber, includeSymbol) => {
     
@@ -38,6 +42,8 @@ const generatePassword = (passwordLength, includeUppercase, includeLowercase, in
 };
 
 
+/* ********************* active generate button ************************** */
+
 const updateGenerateBtnState = () => {
     const isAtLeastOneChecked = Array.from(uiElements.optionCheckboxes).some((checkbox) => {
         return checkbox.checked;
@@ -51,6 +57,7 @@ uiElements.optionCheckboxes.forEach((checkbox) => {
 });
 
 
+/* ************************** handle button **************************** */
 
 const handleGenerateClick = () => {
     
@@ -67,7 +74,16 @@ const handleGenerateClick = () => {
 
 uiElements.generateBtn.addEventListener('click', handleGenerateClick);
 
+/* ********************* feedback password length *************************** */
 
+uiElements.displayPasswordLength.textContent = uiElements.passwordSlider.value;
+const handleLengthSlider = (e) => {
+    const lengthPassword = e.target.value;
+    uiElements.displayPasswordLength.textContent = lengthPassword;
+
+};
+
+uiElements.passwordSlider.addEventListener('change', handleLengthSlider);
 
 /* *************** feedback copy **************** */
 
