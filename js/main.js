@@ -3,9 +3,8 @@ const uiElements = {
     passwordDisplay: document.querySelector(".password-generator__password-display"),
     copyBtn: document.querySelector(".password-generator__copy-btn"),
     displayPasswordLength: document.querySelector(".display-password-length"),
-    passwordSlider: document.getElementById('password-length'),
-
     lengthSlider: document.getElementById('password-length'),
+
     uppercaseCheckbox: document.getElementById('include-uppercase'),
     lowercaseCheckbox: document.getElementById('include-lowercase'),
     numberCheckbox: document.getElementById('include-number'),
@@ -16,7 +15,7 @@ const uiElements = {
 
 
 const UPPERCASE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const LOWERCASE_CHARACTERS = "abcdefghijklmnopqrstuvwxtz";
+const LOWERCASE_CHARACTERS = "abcdefghijklmnopqrstuvwxyz";
 const NUMBER_CHARACTERS = "0123456789";
 const SYMBOL_CHARACTERS = "!@#$%^&*()_+?:{}[]<>/";
 
@@ -37,7 +36,7 @@ const generatePassword = (passwordLength, includeUppercase, includeLowercase, in
     for (let i = 0; i < passwordLength; i++) {
         let randomIndex = Math.floor(Math.random() * allowed.length);
         generatedPassword += allowed[randomIndex];
-    };
+    }
     return generatedPassword;
 };
 
@@ -61,7 +60,7 @@ uiElements.optionCheckboxes.forEach((checkbox) => {
 
 const handleGenerateClick = () => {
     
-    const passwordLength = uiElements.lengthSlider.value;
+    const passwordLength = parseInt(uiElements.lengthSlider.value, 10);
     const includeUppercase = uiElements.uppercaseCheckbox.checked;
     const includeLowercase = uiElements.lowercaseCheckbox.checked;
     const includeNumber = uiElements.numberCheckbox.checked;
@@ -76,14 +75,14 @@ uiElements.generateBtn.addEventListener('click', handleGenerateClick);
 
 /* ********************* feedback password length *************************** */
 
-uiElements.displayPasswordLength.textContent = uiElements.passwordSlider.value;
+uiElements.displayPasswordLength.textContent = uiElements.lengthSlider.value;
 const handleLengthSlider = (e) => {
     const lengthPassword = e.target.value;
     uiElements.displayPasswordLength.textContent = lengthPassword;
 
 };
 
-uiElements.passwordSlider.addEventListener('change', handleLengthSlider);
+uiElements.lengthSlider.addEventListener('input', handleLengthSlider);
 
 /* *************** feedback copy **************** */
 
@@ -108,17 +107,17 @@ const showCopyFeedback = (generatedPassword) => {
 
 /* *************** copy password **************** */
 
-async function copyToClipboard (text) {
+const copyToClipboard = async (text) => {
     try {
         await navigator.clipboard.writeText(text);
         return true;
     } catch (error) {
         console.error(error);
         return false;
-    };
+    }
 };
 
-async function handleCopyClick () {
+const handleCopyClick = async () => {
     const passwordToCopy = uiElements.passwordDisplay.value;
     if (!passwordToCopy) return;
     const isSuccessful = await copyToClipboard(passwordToCopy);
@@ -127,3 +126,7 @@ async function handleCopyClick () {
 };
 
 uiElements.copyBtn.addEventListener('click', handleCopyClick);
+
+
+/* ***************** strength indicator ********************** */
+
