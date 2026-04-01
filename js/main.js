@@ -135,7 +135,6 @@ uiElements.copyBtn.addEventListener('click', handleCopyClick);
 /* ***************** strength indicator ********************** */
 
 
-
 const getPasswordStrength = () => {
     let score = 0;
 
@@ -154,7 +153,7 @@ const getPasswordStrength = () => {
     let strengthLabel;
     if (score <= 2) strengthLabel = 'Weak';
     else if (score <= 4) strengthLabel = 'Fair';
-    else if (score <= 7) strengthLabel = 'Strong';
+    else if (score <= 7 ) strengthLabel = 'Strong';
     else strengthLabel = 'Very Strong';
 
     uiElements.strengthLabel.classList.remove(
@@ -179,6 +178,7 @@ uiElements.optionCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', getPasswordStrength);
 });
 
+getPasswordStrength();
 
 
 
