@@ -69,7 +69,7 @@ const handleGenerateClick = () => {
     
     const generatedPassword = generatePassword(passwordLength, includeUppercase, includeLowercase, includeNumber, includeSymbol);
     uiElements.passwordDisplay.value = generatedPassword;
-
+    updateStrengthIndicator();
 };
 
 uiElements.generateBtn.addEventListener('click', handleGenerateClick);
@@ -135,7 +135,7 @@ uiElements.copyBtn.addEventListener('click', handleCopyClick);
 /* ***************** strength indicator ********************** */
 
 
-const getPasswordStrength = () => {
+const updateStrengthIndicator = () => {
     let score = 0;
 
     const length = parseInt(uiElements.lengthSlider.value, 10);        
@@ -172,13 +172,13 @@ const getPasswordStrength = () => {
 };
 
 
-uiElements.lengthSlider.addEventListener('input', getPasswordStrength);
+// uiElements.lengthSlider.addEventListener('input', updateStrengthIndicator);
 
-uiElements.optionCheckboxes.forEach((checkbox) => {    
-    checkbox.addEventListener('change', getPasswordStrength);
-});
+// uiElements.optionCheckboxes.forEach((checkbox) => {    
+//     checkbox.addEventListener('change', updateStrengthIndicator);
+// });
 
-getPasswordStrength();
+// updateStrengthIndicator();
 
 
 
