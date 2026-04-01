@@ -2,7 +2,8 @@ const uiElements = {
     generateBtn: document.querySelector(".password-generator__generate-btn"),
     passwordDisplay: document.querySelector(".password-generator__password-display"),
     copyBtn: document.querySelector(".password-generator__copy-btn"),
-    displayPasswordLength: document.querySelector(".display-password-length"),
+    passwordLengthLabel: document.querySelector(".display-password-length"),
+    strengthLabel: document.querySelector('.password-strength__display'),
     lengthSlider: document.getElementById('password-length'),
 
     uppercaseCheckbox: document.getElementById('include-uppercase'),
@@ -75,10 +76,10 @@ uiElements.generateBtn.addEventListener('click', handleGenerateClick);
 
 /* ********************* feedback password length *************************** */
 
-uiElements.displayPasswordLength.textContent = uiElements.lengthSlider.value;
+uiElements.passwordLengthLabel.textContent = uiElements.lengthSlider.value;
 const handleLengthSlider = (e) => {
     const lengthPassword = e.target.value;
-    uiElements.displayPasswordLength.textContent = lengthPassword;
+    uiElements.passwordLengthLabel.textContent = lengthPassword;
 
 };
 
@@ -128,5 +129,93 @@ const handleCopyClick = async () => {
 uiElements.copyBtn.addEventListener('click', handleCopyClick);
 
 
+
+
+
 /* ***************** strength indicator ********************** */
 
+
+
+const getPasswordStrength = () => {
+    let score = 0;
+
+    const length = parseInt(uiElements.lengthSlider.value, 10);        
+    if (length >= 4) score++;
+    if (length >= 8) score++;
+    if (length >= 12) score++;
+    if (length >= 16) score++;
+    if (length >= 20) score++;
+
+    if (uiElements.lowercaseCheckbox.checked) score++;
+    if (uiElements.uppercaseCheckbox.checked) score++;
+    if (uiElements.numberCheckbox.checked) score++;
+    if (uiElements.symbolCheckbox.checked) score++;
+
+    let strengthLabel;
+    if (score <= 2) strengthLabel = 'Weak';
+    else if (score <= 4) strengthLabel = 'Fair';
+    else if (score <= 7) strengthLabel = 'Strong';
+    else strengthLabel = 'Very Strong';
+
+    uiElements.strengthLabel.classList.remove(
+        'weak-strength',
+        'fair-strength', 
+        'strong-strength',
+        'very-strong-strength'
+    )
+
+    if (strengthLabel === "Weak") uiElements.strengthLabel.classList.add('weak-strength');
+    else if (strengthLabel === "Fair") uiElements.strengthLabel.classList.add('fair-strength');
+    else if (strengthLabel === "Strong") uiElements.strengthLabel.classList.add('strong-strength');
+    else uiElements.strengthLabel.classList.add('very-strong-strength');
+
+    uiElements.strengthLabel.textContent = strengthLabel;
+};
+
+
+uiElements.lengthSlider.addEventListener('input', getPasswordStrength);
+
+uiElements.optionCheckboxes.forEach((checkbox) => {    
+    checkbox.addEventListener('change', getPasswordStrength);
+});
+
+
+
+
+
+/* 
+valores de implementación:
+
+
+si longitud >= 4  → score + 1
+si longitud >= 8  → score + 1
+si longitud >= 12 → score + 1
+si longitud >= 16 → score + 1
+si longitud >= 20 → score + 1
+
+uppercase → score + 1
+lowercase → score + 1
+number → score + 1
+symbol → score + 1
+
+0 - 2 = weak
+3 - 4 = medium
+5 - 7 = strong
+8 - 9 = very strong
+
+______________________
+
+weak < 8
+1 type character
+
+medium 8 - 11
+2 - 3 types character
+
+strong 12 - 14
+3 - 4 types character
+
+very strong > 15
+4 types character
+
+
+*/
