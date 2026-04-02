@@ -1,4 +1,10 @@
 const uiElements = {
+    views: document.querySelectorAll('.view'),
+    navButtons: document.querySelectorAll('.button-nav__btn'),
+    buttonNav: document.querySelector('.button-nav'),
+
+    ulPasswordHistory: document.querySelector('.history-password__ul'),
+
     generateBtn: document.querySelector(".password-generator__generate-btn"),
     passwordDisplay: document.querySelector(".password-generator__password-display"),
     copyBtn: document.querySelector(".password-generator__copy-btn"),
@@ -196,3 +202,33 @@ const savePasswordToHistory = (passwordEntry) => {
     passwordHistory.push(passwordEntry);
     localStorage.setItem('passwordHistory', JSON.stringify(passwordHistory));
 };
+
+
+
+
+
+
+
+
+/* *********************** switch view ************************* */
+
+
+
+const switchView = (viewName) => {
+    Array.from(uiElements.views).forEach((view) => view.classList.add('hidden'));
+    document.querySelector(`[data-view="${viewName}"]`).classList.remove('hidden');
+    
+    if (viewName === 'history') {
+        passwordHistory.forEach((password) => {
+
+            const li = document.createElement('li');
+            li.textContent = password.password;
+            uiElements.ulPasswordHistory.appendChild(li);
+
+        });
+    }
+};
+
+uiElements.buttonNav.addEventListener('click', (event) => {
+    switchView(event.target.dataset.view);
+});

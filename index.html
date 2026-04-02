@@ -11,57 +11,69 @@
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="app">
-        <header class="header">
-            <h2 class="header__title">Password Generator</h2>
-            <p class="header__subtitle">
-                Generate a secure password instantly
-            </p>
-        </header>
-
-        <section class="password-generator">
-            
-            <div class="password-generator__result">
-                <input type="text" id="input" class="password-generator__password-display" placeholder="Create password" readonly>
-                <i class="password-generator__copy-btn fa-regular fa-copy"></i>
-            </div>
-            <div class="password-strength" ><span class="password-strength__display" ></span>
-
-            </div>
-            
-            <div class="password-generator__controls">
-
-                <div class="password-generator__length">
-                    <label for="password-length">LENGTH <span class="display-password-length"></span>
-                    </label>
-                    <input type="range" id="password-length" name="length" min="4" max="32" value=""/>
+    <main class="app">
+        
+        <section class="view" data-view="generator">
+            <header class="header">
+                <h2 class="header__title">Password Generator</h2>
+                <p class="header__subtitle">
+                    Generate a secure password instantly
+                </p>
+            </header>
+            <section class="password-generator">
+                
+                <div class="password-generator__result">
+                    <input type="text" id="input" class="password-generator__password-display" placeholder="Create password" readonly>
+                    <i class="password-generator__copy-btn fa-regular fa-copy"></i>
                 </div>
-
-                <div class="password-generator__settings">
-                    <p class="password-generator__settings-title">SETTINGS</p>
-                    <label for="upper"><span>Include Uppercase</span>
-                    </label>
-                    <input type="checkbox" id="include-uppercase" class="option-checkbox"/>
-            
-                    <label for="lower"><span>Include Lowercase</span>
-                    </label>
-                    <input type="checkbox" id="include-lowercase" class="option-checkbox"/>
-
-                    <label for="number"><span>Include Numbers</span>
-                    </label>
-                    <input type="checkbox" id="include-number" class="option-checkbox"/>
-
-                    <label for="symbol"><span>Include Symbols</span>
-                    </label>
-                    <input type="checkbox" id="include-symbol" class="option-checkbox"/>
+                <div class="password-strength" ><span class="password-strength__display" ></span>
+                    
                 </div>
-
-            </div>
-
-            <button disabled class="password-generator__generate-btn">Generate</button>
+                
+                <div class="password-generator__controls">
+                    
+                    <div class="password-generator__length">
+                        <label for="password-length">LENGTH <span class="display-password-length"></span>
+                        </label>
+                        <input type="range" id="password-length" name="length" min="4" max="32" value=""/>
+                    </div>
+                    
+                    <div class="password-generator__settings">
+                        <p class="password-generator__settings-title">SETTINGS</p>
+                        <label for="upper"><span>Include Uppercase</span>
+                        </label>
+                        <input type="checkbox" id="include-uppercase" class="option-checkbox"/>
+                        
+                        <label for="lower"><span>Include Lowercase</span>
+                        </label>
+                        <input type="checkbox" id="include-lowercase" class="option-checkbox"/>
+                        
+                        <label for="number"><span>Include Numbers</span>
+                        </label>
+                        <input type="checkbox" id="include-number" class="option-checkbox"/>
+                        
+                        <label for="symbol"><span>Include Symbols</span>
+                        </label>
+                        <input type="checkbox" id="include-symbol" class="option-checkbox"/>
+                    </div>                    
+                </div>
+                <button disabled class="password-generator__generate-btn">Generate</button>
+            </section>
         </section>
-        <div class="alert_generator"></div>
-    </div>
+            
+        <section class="view hidden" data-view="history">
+            <div class="history-password">
+                <ul class="history-password__ul">
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <nav class="button-nav">
+        <button class="button-nav__btn" data-view="generator">View Generator</button>
+        <button class="button-nav__btn" data-view="history">View History</button>
+    </nav>
 
         <script type="text/javascript" src="./js/main.js"></script>        
 </body>
