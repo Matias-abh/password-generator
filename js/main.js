@@ -57,6 +57,9 @@ uiElements.optionCheckboxes.forEach((checkbox) => {
 });
 
 
+
+
+
 /* ************************** handle button **************************** */
 
 const handleGenerateClick = () => {
@@ -69,10 +72,15 @@ const handleGenerateClick = () => {
     
     const generatedPassword = generatePassword(passwordLength, includeUppercase, includeLowercase, includeNumber, includeSymbol);
     uiElements.passwordDisplay.value = generatedPassword;
-    updateStrengthIndicator();
+    const strength = updateStrengthIndicator();
+    
+    const passwordEntry = { password: generatedPassword, strength, createdAt: new Date()};
+    savePasswordToHistory(passwordEntry);
 };
 
 uiElements.generateBtn.addEventListener('click', handleGenerateClick);
+
+
 
 /* ********************* feedback password length *************************** */
 
@@ -84,6 +92,9 @@ const handleLengthSlider = (e) => {
 };
 
 uiElements.lengthSlider.addEventListener('input', handleLengthSlider);
+
+
+
 
 /* *************** feedback copy **************** */
 
@@ -169,53 +180,19 @@ const updateStrengthIndicator = () => {
     else uiElements.strengthLabel.classList.add('very-strong-strength');
 
     uiElements.strengthLabel.textContent = strengthLabel;
+    return strengthLabel;
 };
 
 
-// uiElements.lengthSlider.addEventListener('input', updateStrengthIndicator);
-
-// uiElements.optionCheckboxes.forEach((checkbox) => {    
-//     checkbox.addEventListener('change', updateStrengthIndicator);
-// });
-
-// updateStrengthIndicator();
 
 
 
+/* *********************** password history ************************** */
 
-/* 
-valores de implementación:
+let passwordHistory = JSON.parse(localStorage.getItem('passwordHistory')) ?? [];
 
+const savePasswordToHistory = (passwordEntry) => {
 
-si longitud >= 4  → score + 1
-si longitud >= 8  → score + 1
-si longitud >= 12 → score + 1
-si longitud >= 16 → score + 1
-si longitud >= 20 → score + 1
-
-uppercase → score + 1
-lowercase → score + 1
-number → score + 1
-symbol → score + 1
-
-0 - 2 = weak
-3 - 4 = medium
-5 - 7 = strong
-8 - 9 = very strong
-
-______________________
-
-weak < 8
-1 type character
-
-medium 8 - 11
-2 - 3 types character
-
-strong 12 - 14
-3 - 4 types character
-
-very strong > 15
-4 types character
-
-
-*/
+    passwordHistory.push(passwordEntry);
+    localStorage.setItem('passwordHistory', JSON.stringify(passwordHistory));
+};
