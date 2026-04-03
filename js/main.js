@@ -4,6 +4,7 @@ const uiElements = {
     buttonNav: document.querySelector('.button-nav'),
 
     ulPasswordHistory: document.querySelector('.history-password__ul'),
+    toast: document.querySelector('.toast'),
 
     generateBtn: document.querySelector(".password-generator__generate-btn"),
     passwordDisplay: document.querySelector(".password-generator__password-display"),
@@ -221,24 +222,73 @@ const formatter = new Intl.DateTimeFormat('en-US', {
 });
 
 const switchView = (viewName) => {
-    Array.from(uiElements.views).forEach((view) => view.classList.add('hidden'));
+    uiElements.views.forEach((view) => view.classList.add('hidden'));
     document.querySelector(`[data-view="${viewName}"]`).classList.remove('hidden');
     
     
     if (viewName === 'history') {
         uiElements.ulPasswordHistory.replaceChildren();
         passwordHistory.forEach((passwordEntry) => {
-            const date = formatter.format(new Date(passwordEntry.createdAt));           
+
             const li = document.createElement('li');
-            const span = document.createElement('span');
-            li.textContent = passwordEntry.password;
-            span.textContent = date;
-            li.appendChild(span);
+            const passwordSpan = document.createElement('span');
+            const strengthSpan = document.createElement('span');
+            const dateSpan = document.createElement('span');
+            const copyBtn = document.createElement('i');
+            copyBtn.classList.add('fa-regular', 'fa-copy', 'history-copy-btn');
+            copyBtn.dataset.password = passwordEntry.password;
+            li.classList.add('historyLi');
+            const date = formatter.format(new Date(passwordEntry.createdAt));        
+            passwordSpan.textContent = passwordEntry.password;
+            strengthSpan.textContent = passwordEntry.strength;
+            dateSpan.textContent = date;
+            li.appendChild(passwordSpan);
+            li.appendChild(strengthSpan);
+            li.appendChild(dateSpan);
+            li.appendChild(copyBtn);
             uiElements.ulPasswordHistory.appendChild(li);
+            
         });
     }
 };
 
+
+
 uiElements.buttonNav.addEventListener('click', (event) => {
-    switchView(event.target.dataset.view);
+    const viewName = event.target.dataset.target;
+    if (!viewName) return;
+    switchView(viewName);
 });
+
+
+
+
+/* **************** show toast (copy password from history) ************ */
+
+
+
+
+const showToast = () => {
+
+    uiElements.toast.classList.remove('hidden');
+
+    setTimeout(() => {
+        uiElements.toast.classList.add('hidden');
+    }, 800);
+};
+
+
+const handleHistoryCopyClick = async (event) => {
+    const copyBtn = event.target.closest('.history-copy-btn');
+    if (!copyBtn) return;
+    const passwordToCopy = copyBtn.dataset.password;
+    const isSuccessful = await copyToClipboard(passwordToCopy);
+    if (!isSuccessful) return;
+    showToast();
+};
+
+uiElements.ulPasswordHistory.addEventListener('click', handleHistoryCopyClick);
+
+
+
+
