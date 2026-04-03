@@ -212,19 +212,29 @@ const savePasswordToHistory = (passwordEntry) => {
 
 /* *********************** switch view ************************* */
 
-
+const formatter = new Intl.DateTimeFormat('en-US', {
+    month: 'short',     // "Jan"
+    day: 'numeric',     // "3"
+    hour: 'numeric',    // "10"
+    minute: '2-digit',  // "42"
+    hour12: true        // AM/PM
+});
 
 const switchView = (viewName) => {
     Array.from(uiElements.views).forEach((view) => view.classList.add('hidden'));
     document.querySelector(`[data-view="${viewName}"]`).classList.remove('hidden');
     
+    
     if (viewName === 'history') {
-        passwordHistory.forEach((password) => {
-
+        uiElements.ulPasswordHistory.replaceChildren();
+        passwordHistory.forEach((passwordEntry) => {
+            const date = formatter.format(new Date(passwordEntry.createdAt));           
             const li = document.createElement('li');
-            li.textContent = password.password;
+            const span = document.createElement('span');
+            li.textContent = passwordEntry.password;
+            span.textContent = date;
+            li.appendChild(span);
             uiElements.ulPasswordHistory.appendChild(li);
-
         });
     }
 };
