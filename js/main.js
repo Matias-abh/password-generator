@@ -19,6 +19,8 @@ const uiElements = {
     symbolCheckbox: document.getElementById('include-symbol'),
     
     optionCheckboxes: document.querySelectorAll('.option-checkbox'),
+
+    deleteHistoryBtn: document.querySelector('.delete-history-password'),
 };
 
 
@@ -210,7 +212,6 @@ const savePasswordToHistory = (passwordEntry) => {
 
 
 
-
 /* *********************** switch view ************************* */
 
 const formatter = new Intl.DateTimeFormat('en-US', {
@@ -228,27 +229,34 @@ const switchView = (viewName) => {
     
     if (viewName === 'history') {
         uiElements.ulPasswordHistory.replaceChildren();
-        passwordHistory.forEach((passwordEntry) => {
-
-            const li = document.createElement('li');
-            const passwordSpan = document.createElement('span');
-            const strengthSpan = document.createElement('span');
-            const dateSpan = document.createElement('span');
-            const copyBtn = document.createElement('i');
-            copyBtn.classList.add('fa-regular', 'fa-copy', 'history-copy-btn');
-            copyBtn.dataset.password = passwordEntry.password;
-            li.classList.add('historyLi');
-            const date = formatter.format(new Date(passwordEntry.createdAt));        
-            passwordSpan.textContent = passwordEntry.password;
-            strengthSpan.textContent = passwordEntry.strength;
-            dateSpan.textContent = date;
-            li.appendChild(passwordSpan);
-            li.appendChild(strengthSpan);
-            li.appendChild(dateSpan);
-            li.appendChild(copyBtn);
-            uiElements.ulPasswordHistory.appendChild(li);
-            
-        });
+        if (!passwordHistory.length) {
+            uiElements.deleteHistoryBtn.classList.add('hidden');
+            const emptyMessage = document.createElement('li');
+            emptyMessage.textContent = 'No history yet';
+            emptyMessage.classList.add('history-empty');
+            uiElements.ulPasswordHistory.appendChild(emptyMessage);
+        } else {            
+            uiElements.deleteHistoryBtn.classList.remove('hidden');
+            passwordHistory.forEach((passwordEntry) => {
+                const li = document.createElement('li');
+                const passwordSpan = document.createElement('span');
+                const strengthSpan = document.createElement('span');
+                const dateSpan = document.createElement('span');
+                const copyBtn = document.createElement('i');
+                copyBtn.classList.add('fa-regular', 'fa-copy', 'history-copy-btn');
+                copyBtn.dataset.password = passwordEntry.password;
+                li.classList.add('history-item');
+                const date = formatter.format(new Date(passwordEntry.createdAt));        
+                passwordSpan.textContent = passwordEntry.password;
+                strengthSpan.textContent = passwordEntry.strength;
+                dateSpan.textContent = date;
+                li.appendChild(passwordSpan);
+                li.appendChild(strengthSpan);
+                li.appendChild(dateSpan);
+                li.appendChild(copyBtn);
+                uiElements.ulPasswordHistory.appendChild(li);
+            });
+        }
     }
 };
 
@@ -292,3 +300,13 @@ uiElements.ulPasswordHistory.addEventListener('click', handleHistoryCopyClick);
 
 
 
+/* ****************** delete history ********************* */
+
+
+const handleDeleteHistoryClick = () => {
+    passwordHistory = [];
+    localStorage.removeItem('passwordHistory');
+    switchView('history');
+};
+
+uiElements.deleteHistoryBtn.addEventListener('click', handleDeleteHistoryClick);
