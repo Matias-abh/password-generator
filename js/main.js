@@ -198,12 +198,27 @@ const updateStrengthIndicator = () => {
 
 /* *********************** password history ************************** */
 
-let passwordHistory = JSON.parse(localStorage.getItem('passwordHistory')) ?? [];
+const STORAGE_KEY = 'passwordHistory';
+
+let passwordHistory = [];
+
+const getPasswordHistory = () => {
+    try {
+        passwordHistory = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
+    } catch (error) {
+        console.error(`Error reading ${STORAGE_KEY} from localStorage:`, error);
+    }
+};
+
+getPasswordHistory();
 
 const savePasswordToHistory = (passwordEntry) => {
-
-    passwordHistory.push(passwordEntry);
-    localStorage.setItem('passwordHistory', JSON.stringify(passwordHistory));
+    try {
+        passwordHistory.push(passwordEntry);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(passwordHistory));
+    } catch (error) {
+        console.error(`Error saving ${STORAGE_KEY} to localStorage:`, error);
+    }
 };
 
 
@@ -222,13 +237,8 @@ const formatter = new Intl.DateTimeFormat('en-US', {
     hour12: true        // AM/PM
 });
 
-const switchView = (viewName) => {
-    uiElements.views.forEach((view) => view.classList.add('hidden'));
-    document.querySelector(`[data-view="${viewName}"]`).classList.remove('hidden');
-    
-    
-    if (viewName === 'history') {
-        uiElements.ulPasswordHistory.replaceChildren();
+const renderHistory = () => {
+    uiElements.ulPasswordHistory.replaceChildren();
         if (!passwordHistory.length) {
             uiElements.deleteHistoryBtn.classList.add('hidden');
             const emptyMessage = document.createElement('li');
@@ -257,7 +267,13 @@ const switchView = (viewName) => {
                 uiElements.ulPasswordHistory.appendChild(li);
             });
         }
-    }
+};
+
+
+const switchView = (viewName) => {
+    uiElements.views.forEach((view) => view.classList.add('hidden'));
+    document.querySelector(`[data-view="${viewName}"]`).classList.remove('hidden');
+    if (viewName === 'history') renderHistory();
 };
 
 
@@ -305,7 +321,7 @@ uiElements.ulPasswordHistory.addEventListener('click', handleHistoryCopyClick);
 
 const handleDeleteHistoryClick = () => {
     passwordHistory = [];
-    localStorage.removeItem('passwordHistory');
+    localStorage.removeItem(STORAGE_KEY);
     switchView('history');
 };
 
