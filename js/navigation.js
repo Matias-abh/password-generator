@@ -8,6 +8,11 @@ const switchView = (viewName) => {
     uiElements.views.forEach((view) => view.classList.add('hidden'));
     document.querySelector(`[data-view="${viewName}"]`).classList.remove('hidden');
     if (viewName === 'history') renderHistory();
+
+    uiElements.navButtons.forEach((btn) => {
+        btn.classList.remove('button-nav__btn--active');
+        document.querySelector(`[data-target="${viewName}"]`).classList.add('button-nav__btn--active');
+    });
 };
 
 const handleBtnNav = (event) => {

@@ -1,6 +1,7 @@
 const uiElements = {
     views: document.querySelectorAll('.view'),
     buttonNav: document.querySelector('.button-nav'),
+    navButtons: document.querySelectorAll('.button-nav__btn'),
 
     ulPasswordHistory: document.querySelector('.history-password__ul'),
     toast: document.querySelector('.toast'),
