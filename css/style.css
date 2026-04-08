@@ -65,15 +65,15 @@ body {
 }
 
 .password-generator {
-    padding: var(--space-10) var(--space-4);
+    padding: var(--space-2) var(--space-4);
     border-radius: var(--radius-4);
     box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     border: 1px solid rgba(255,255,255,0.05);
     
     text-align: center;
-    margin: var(--space-6);
+    margin: var(--space-2);
     width: 95%;
-    height: fit-content;
+    /* height: fit-content; */
 
     backdrop-filter: blur(6px);
 }
@@ -163,16 +163,10 @@ body {
 }
 
 
-/* 
-.icon-active {
-    display: block;
-} */
-
-
 /***** CONTROLS *****/
 
 .password-generator__controls {
-    padding: var(--space-10) 0;
+    padding: var(--space-1) 0;
 }
 
 .password-generator__length {
@@ -195,7 +189,7 @@ body {
 .password-generator__settings {
     display: flex;
     flex-direction: column;
-    padding: var(--space-6);
+    padding: var(--space-2);
     gap: var(--space-4);
 
 }
@@ -251,8 +245,59 @@ body {
 }
 
 
+/* ----------------------- */
 
 
+/* ===== TAB BAR (Barra de navegación) ===== */
+
+.button-nav {
+    /* Positioning (Posicionamiento) */
+    position: fixed;
+    bottom: var(--space-8);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    /* Box Model */
+    width: fit-content;
+    padding: var(--space-1);
+
+    /* Visual */
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(12px);
+
+    /* Layout interno */
+    display: flex;
+    gap: var(--space-1);
+}
+
+.button-nav__btn {
+    /* Box Model */
+    padding: var(--space-3) var(--space-6);
+    border: none;
+    border-radius: var(--radius-full);
+
+    /* Tipografía */
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+
+    /* Visual — estado inactivo por defecto */
+    background: transparent;
+    color: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+
+    /* Transition (Transición) para el cambio de estado */
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Estado activo — se aplica desde JavaScript */
+.button-nav__btn--active {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
 
 
 
