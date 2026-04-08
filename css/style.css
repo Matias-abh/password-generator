@@ -5,51 +5,57 @@
 }
 
 html {
-    font-size: 16px;
+    font-size: var(--text-4);
 }
 
 :root {
+    --text-xs:   0.75rem;  /* 12px — labels, captions */
+    --text-sm:   0.875rem; /* 14px — texto secundario */
+    --text-base: 1rem;     /* 16px — cuerpo de texto */
+    --text-lg:   1.125rem; /* 18px — texto destacado */
+    --text-xl:   1.25rem;  /* 20px — subtítulos */
+    --text-2xl:  1.5rem;   /* 24px — títulos secundarios */
+    --text-3xl:  1.875rem; /* 30px — títulos principales */
+    --text-4xl:  2.25rem;  /* 36px — heroes, displays */
 
-    --text-sm: 0.875rem;
-    --text-base: 1rem;
-    --text-lg: 1.25rem;
-    --text-xl: 1.6rem;
-    --text-2xl: 2rem;
 
-
-    --space-1: 0.2rem;
-    --space-2: 0.5rem;
-    --space-4: 1rem;
-    --space-6: 1.5rem;
-    --space-8: 2rem;
-    --space-9: 2.5rem;
-    --space-10: 2.8rem;
-    --space-12: 6rem;
-
+    --space-1:  0.25rem;  /*  4px */
+    --space-2:  0.5rem;   /*  8px */
+    --space-3:  0.75rem;  /* 12px */
+    --space-4:  1rem;     /* 16px */
+    --space-5:  1.25rem;  /* 20px */
+    --space-6:  1.5rem;   /* 24px */
+    --space-8:  2rem;     /* 32px */
+    --space-10: 2.5rem;   /* 40px */
+    --space-12: 3rem;     /* 48px */
+    --space-16: 4rem;     /* 64px */
+    --space-20: 5rem;     /* 80px */
+    --space-24: 6rem;     /* 96px */
 
     --color-primary: #543d83;
     --color-secondary: #402f63;
     --color-text: #fff;
-    --color-bg: #1c212e;
+    /* --color-bg: #1c212e; */
 
-    --radius-sm: 8px;
-    --radius-md: 10px;
+    --radius-1: 4px;        /*  4px */     
+    --radius-2: 8px;        /*  8px */     
+    --radius-3: 12px;       /* 12px */   
+    --radius-4: 16px;       /* 16px */   
+    --radius-full: 9999px; /* para píldoras, badges, toggles */
 }
-
 
 body {
     font-family: Google Sans, Arial, Helvetica, sans-serif;
     font-size: var(--text-base);
     color: var(--color-text);
     background: radial-gradient(circle at top, #0f172a, #020617);
-    
+
 }
 
 .app {
     width: 100%;
     max-width: 480px;
     min-height: 100vh;
-    padding: 0.1px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -60,7 +66,7 @@ body {
 
 .password-generator {
     padding: var(--space-10) var(--space-4);
-    border-radius: 16px;
+    border-radius: var(--radius-4);
     box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     border: 1px solid rgba(255,255,255,0.05);
     
@@ -70,16 +76,14 @@ body {
     height: fit-content;
 
     backdrop-filter: blur(6px);
-
-
 }
 
 .header {
-    margin-bottom: var(--space-9);
+    margin-bottom: var(--space-8);
 }
 
 .header__title {
-    font-size: var(--text-xl);
+    font-size: var(--text-2xl);
     letter-spacing: 0.5px;
     margin-bottom: var(--space-2);
     font-weight: 700;
@@ -87,7 +91,7 @@ body {
 }
 
 .header__subtitle {
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     opacity: .6;
     color: #94a3b8;
     text-align: center;
@@ -105,9 +109,8 @@ body {
     
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-3);
     box-shadow: inset 0 0 8px 1px hsla(228, 36%, 13%, 0.3);
-    /* box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02); */
     
 }
 
@@ -133,7 +136,7 @@ body {
 .password-generator__copy-btn {
     cursor: pointer;
     opacity: 0.3;
-    font-size: var(--text-xl);
+    font-size: var(--text-2xl);
     margin-right: var(--space-1);
     color: rgba(255, 255, 255, 0.216);
 
@@ -141,11 +144,6 @@ body {
 }
 
 
-
-
-.password-generator__copy-btn {
-    transition: transform 0.1s ease, color 0.1s ease;
-}
 
 /* Cuando el botón tiene la clase de éxito */
 
@@ -174,14 +172,14 @@ body {
 /***** CONTROLS *****/
 
 .password-generator__controls {
-    padding: 2.2rem 0;
+    padding: var(--space-10) 0;
 }
 
 .password-generator__length {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.2rem;
+    gap: var(--space-5);
 }
 
 #length {
@@ -191,14 +189,14 @@ body {
 
 
 .password-generator__settings-title {    
-    margin-top: 2rem;
+    margin-top: var(--space-8);
 }
 
 .password-generator__settings {
     display: flex;
     flex-direction: column;
-    padding: 1.8rem;
-    gap: 1rem;
+    padding: var(--space-6);
+    gap: var(--space-4);
 
 }
 
@@ -214,7 +212,7 @@ body {
 /***** GENERATE BUTTON *****/
 
 .password-generator__generate-btn {
-    font-size: var(--text-lg);
+    font-size: var(--text-xl);
     color: var(--color-text);
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -223,7 +221,7 @@ body {
     padding: var(--space-4) 0;
     width: 90%;
     margin-top: var(--space-6);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-3);
 
     background: linear-gradient(135deg, #6366f1, #4f46e5);
     box-shadow: 0 6px 20px rgba(79,70,229,0.35);
@@ -285,7 +283,7 @@ body {
 @media (min-width: 1024px) {
 
     .header__title {
-        font-size: var(--text-2xl);
+        font-size: var(--text-3xl);
     }
 
     .header__subtitle {
