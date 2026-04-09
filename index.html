@@ -13,72 +13,81 @@
 
 </head>
 <body>
-    <main class="app">
-        
-        <section class="view" data-view="generator">
-            <header class="header">
-                <h2 class="header__title">Password Generator</h2>
-                <p class="header__subtitle">
-                    Generate a secure password instantly
-                </p>
-            </header>
-            <section class="password-generator">
-                
-                <div class="password-generator__result">
-                    <input type="text" id="input" class="password-generator__password-display" placeholder="Create password" readonly>
-                    <i class="password-generator__copy-btn fa-regular fa-copy"></i>
-                </div>
-                <div class="password-strength" ><span class="password-strength__display" ></span>
-                    
-                </div>
-                
-                <div class="password-generator__controls">
-                    
-                    <div class="password-generator__length">
-                        <label for="password-length">LENGTH <span class="display-password-length"></span>
-                        </label>
-                        <input type="range" id="password-length" name="length" min="4" max="32" value=""/>
-                    </div>
-                    
-                    <div class="password-generator__settings">
-                        <p class="password-generator__settings-title">SETTINGS</p>
+  <main class="app">
+      
+      <section class="view" data-view="generator">
+          <header class="header">
+              <h2 class="header__title">Password Generator</h2>
+              <p class="header__subtitle">
+                  Generate a secure password instantly
+              </p>
+          </header>
+          <section class="password-generator">
+              
+              <div class="password-generator__result">
+                  <input type="text" id="input" class="password-generator__password-display" placeholder="Create password" readonly>
+                  <i class="password-generator__copy-btn fa-regular fa-copy"></i>
+              </div>
+              <div class="password-strength" ><span class="password-strength__display" ></span>
+                  
+              </div>
+              
+              <div class="password-generator__controls">
+                  
+                  <div class="password-generator__length">
+                      <label for="password-length">Length: <span class="display-password-length"></span>
+                      </label>
+                      <input type="range" id="password-length" name="length" min="4" max="32" value=""/>
+                  </div>
+                  
+                    <fieldset class="password-generator__settings">            
+                      <legend class="password-generator__settings-title">Settings</legend>
+                      <div class="settings-option">
                         <label for="include-uppercase"><span>Include Uppercase</span>
                         </label>
                         <input type="checkbox" id="include-uppercase" class="option-checkbox"/>
-                        
+                      </div>
+                      
+                      <div class="settings-option">
                         <label for="include-lowercase"><span>Include Lowercase</span>
                         </label>
                         <input type="checkbox" id="include-lowercase" class="option-checkbox"/>
-                        
+                      </div>
+
+                      <div class="settings-option">
                         <label for="include-number"><span>Include Numbers</span>
                         </label>
                         <input type="checkbox" id="include-number" class="option-checkbox"/>
-                        
+                      </div>                        
+                      
+                      <div class="settings-option">
                         <label for="include-symbol"><span>Include Symbols</span>
                         </label>
                         <input type="checkbox" id="include-symbol" class="option-checkbox"/>
-                    </div>                    
-                </div>
-                <button disabled class="password-generator__generate-btn">Generate</button>
-            </section>
-        </section>
-            
-        <section class="view hidden" data-view="history">
-            <div class="history-password">
-                <ul class="history-password__ul">
-                </ul>
-            </div>
-            <button class="delete-history-password">Delete history</button>
-        </section>
+                      </div>
+                    </fieldset>
+                    
+              </div>
+              <button disabled class="password-generator__generate-btn">Generate</button>
+          </section>
+      </section>
+          
+      <section class="view hidden" data-view="history">
+          <div class="history-password">
+              <ul class="history-password__ul">
+              </ul>
+          </div>
+          <button class="delete-history-password">Delete history</button>
+      </section>
 
-    </main>
+  </main>
 
-    <nav class="button-nav">
-        <button class="button-nav__btn" data-target="generator">Gen</button>
-        <button class="button-nav__btn" data-target="history">Hist</button>
-    </nav>
+  <nav class="button-nav">
+      <button class="button-nav__btn" data-target="generator">Gen</button>
+      <button class="button-nav__btn" data-target="history">Hist</button>
+  </nav>
 
-    <div class="toast hidden">Copied!</div>
+  <div class="toast hidden">Copied!</div>
 
 </body>
 </html>

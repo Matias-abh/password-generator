@@ -248,7 +248,7 @@ body {
 /* ----------------------- */
 
 
-/* ===== TAB BAR (Barra de navegación) ===== */
+/* ===== TAB BAR ===== */
 
 .button-nav {
     /* Positioning (Posicionamiento) */
@@ -271,6 +271,7 @@ body {
     /* Layout interno */
     display: flex;
     gap: var(--space-1);
+
 }
 
 .button-nav__btn {
@@ -291,12 +292,60 @@ body {
 
     /* Transition (Transición) para el cambio de estado */
     transition: background 0.2s ease, color 0.2s ease;
+
 }
 
 /* Estado activo — se aplica desde JavaScript */
+
 .button-nav__btn--active {
     background: rgba(255, 255, 255, 0.12);
     color: #fff;
+}
+
+
+
+
+/* ===== SETTINGS ===== */
+
+
+.password-generator__settings {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6);
+
+    /* Reset de estilos por defecto del fieldset */
+    border: none;
+    padding-top: 0;
+}
+
+
+.password-generator__settings-title {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-2);
+    font-size: var(--text-xs);
+    letter-spacing: 1px;
+    opacity: 0.5;
+    text-transform: uppercase;
+}
+
+.settings-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-4);
+
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-3);
+
+    cursor: pointer;
+}
+
+.settings-option label {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
 }
 
 
