@@ -28,16 +28,18 @@
                   <input type="text" id="input" class="password-generator__password-display" placeholder="Create password" readonly>
                   <i class="password-generator__copy-btn fa-regular fa-copy"></i>
               </div>
-              <div class="password-strength" ><span class="password-strength__display" ></span>
-                  
+
+              <div class="password-strength" ><span class="password-strength__display" ></span>                  
               </div>
               
               <div class="password-generator__controls">
                   
                   <div class="password-generator__length">
-                      <label for="password-length">Length: <span class="display-password-length"></span>
-                      </label>
-                      <input type="range" id="password-length" name="length" min="4" max="32" value=""/>
+                    <div class="password-generator__length-header">
+                      <label for="password-length" class="password-generator__length-label">Length:</label>
+                      <span class="password-generator__length-value"></span>
+                    </div>
+                    <input type="range" id="password-length" class="slider" min="4" max="32" value=""/>
                   </div>
                   
                     <fieldset class="password-generator__settings">            
