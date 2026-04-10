@@ -9,8 +9,9 @@ const uiElements = {
     generateBtn: document.querySelector(".password-generator__generate-btn"),
     passwordDisplay: document.querySelector(".password-generator__password-display"),
     copyBtn: document.querySelector(".password-generator__copy-btn"),
-    passwordLengthLabel: document.querySelector(".display-password-length"),
-    strengthLabel: document.querySelector('.password-strength__display'),
+    passwordLengthLabel: document.querySelector(".password-generator__length-value"),
+    strengthContainer: document.querySelector('.password-strength'),
+    strengthLabel: document.querySelector('.password-strength__label'),
     lengthSlider: document.getElementById('password-length'),
 
     uppercaseCheckbox: document.getElementById('include-uppercase'),
