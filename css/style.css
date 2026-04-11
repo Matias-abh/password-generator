@@ -487,9 +487,7 @@ body {
 
 
 
-/* ===== STRENGTH ===== */
-
-
+/* ===== STRENGTH INDICATOR ===== */
 
 
 /* Estado base — barras siempre visibles pero apagadas */
@@ -510,49 +508,6 @@ body {
 }
 
 
-
-
-
-/* ===== estados activos que JS activa agregando la clase al contenedor ===== */
-
-
-/* Weak — 1 barra roja */
-.password-strength.weak .password-strength__bar:nth-child(1) {
-    background: #ef4444;
-}
-.password-strength.weak .password-strength__label {
-    color: #ef4444;
-}
-
-/* Fair — 2 barras naranjas */
-.password-strength.fair .password-strength__bar:nth-child(1),
-.password-strength.fair .password-strength__bar:nth-child(2) {
-    background: #f97316;
-}
-.password-strength.fair .password-strength__label {
-    color: #f97316;
-}
-
-/* Strong — 3 barras verdes */
-.password-strength.strong .password-strength__bar:nth-child(1),
-.password-strength.strong .password-strength__bar:nth-child(2),
-.password-strength.strong .password-strength__bar:nth-child(3) {
-    background: #22c55e;
-}
-.password-strength.strong .password-strength__label {
-    color: #22c55e;
-}
-
-/* Very strong — 4 barras verdes intensas */
-.password-strength.very-strong .password-strength__bar:nth-child(1),
-.password-strength.very-strong .password-strength__bar:nth-child(2),
-.password-strength.very-strong .password-strength__bar:nth-child(3),
-.password-strength.very-strong .password-strength__bar:nth-child(4) {
-    background: #16a34a;
-}
-.password-strength.very-strong .password-strength__label {
-    color: #16a34a;
-}
 
 
 
@@ -579,6 +534,46 @@ body {
 
 
 
+/* ===== estados activos que JS activa agregando la clase al contenedor ===== */
+
+
+/* Weak — 1 barra roja */
+/* .password-strength.weak .password-strength__bar:nth-child(1) {
+    background: #ef4444;
+}
+.password-strength.weak .password-strength__label {
+    color: #ef4444;
+} */
+
+/* Fair — 2 barras naranjas */
+/* .password-strength.fair .password-strength__bar:nth-child(1),
+.password-strength.fair .password-strength__bar:nth-child(2) {
+    background: #f97316;
+}
+.password-strength.fair .password-strength__label {
+    color: #f97316;
+} */
+
+/* Strong — 3 barras verdes */
+/* .password-strength.strong .password-strength__bar:nth-child(1),
+.password-strength.strong .password-strength__bar:nth-child(2),
+.password-strength.strong .password-strength__bar:nth-child(3) {
+    background: #22c55e;
+}
+.password-strength.strong .password-strength__label {
+    color: #22c55e;
+} */
+
+/* Very strong — 4 barras verdes intensas */
+/* .password-strength.very-strong .password-strength__bar:nth-child(1),
+.password-strength.very-strong .password-strength__bar:nth-child(2),
+.password-strength.very-strong .password-strength__bar:nth-child(3),
+.password-strength.very-strong .password-strength__bar:nth-child(4) {
+    background: #16a34a;
+}
+.password-strength.very-strong .password-strength__label {
+    color: #16a34a;
+} */
 
 
 
@@ -586,7 +581,35 @@ body {
 
 
 
+/***** refactor strength indicator *****/
 
+.password-strength.weak .password-strength__bar:nth-child(1) {
+  background-color: #ef4444;
+}
+.password-strength.weak .password-strength__label {
+  color: #ef4444;
+}
+
+.password-strength.fair .password-strength__bar:nth-child(-n+2) {
+  background-color: #f97316;
+}
+.password-strength.fair .password-strength__label {
+  color: #f97316;
+}
+
+.password-strength.strong .password-strength__bar:nth-child(-n+3) {
+  background-color: #22c55e;
+}
+.password-strength.strong .password-strength__label {
+  color: #22c55e;
+}
+
+.password-strength.very-strong .password-strength__bar:nth-child(-n+4) {
+  background-color: #16a34a;
+}
+.password-strength.very-strong .password-strength__label {
+  color: #16a34a;
+}
 
 
 
