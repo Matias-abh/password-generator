@@ -85,7 +85,7 @@ body {
 }
 
 .header__subtitle {
-    font-size: var(--text-xs);
+    font-size: var(--text-base);
     opacity: .6;
     color: #94a3b8;
     text-align: center;
@@ -119,8 +119,7 @@ body {
 
 .password-generator__password-display::placeholder {
     letter-spacing: .6px;
-    color: rgba(255, 255, 255, 0.216);
-    /* vertical-align: middle; */
+    color: rgba(255, 255, 255, 0.300);
 }
 
 
@@ -178,7 +177,7 @@ body {
     font-size: var(--text-base);
     color: var(--color-text);
     font-weight: 600;
-    letter-spacing: 0.6px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     
 
