@@ -4,10 +4,6 @@
     margin: 0;
 }
 
-html {
-    font-size: var(--text-4);
-}
-
 :root {
     --text-xs:   0.75rem;  /* 12px — labels, captions */
     --text-sm:   0.875rem; /* 14px — texto secundario */
@@ -17,7 +13,6 @@ html {
     --text-2xl:  1.5rem;   /* 24px — títulos secundarios */
     --text-3xl:  1.875rem; /* 30px — títulos principales */
     --text-4xl:  2.25rem;  /* 36px — heroes, displays */
-
 
     --space-1:  0.25rem;  /*  4px */
     --space-2:  0.5rem;   /*  8px */
@@ -32,10 +27,10 @@ html {
     --space-20: 5rem;     /* 80px */
     --space-24: 6rem;     /* 96px */
 
+    --color-accent: #6366f1;
     --color-primary: #543d83;
     --color-secondary: #402f63;
     --color-text: #fff;
-    /* --color-bg: #1c212e; */
 
     --radius-1: 4px;        /*  4px */     
     --radius-2: 8px;        /*  8px */     
@@ -61,21 +56,18 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: var(--space-12);    
-    padding-bottom: var(--space-24);    
+    padding-top: var(--space-8);    
+    padding-bottom: var(--space-16);    
 }
 
 .password-generator {
+    width: 100%;
+    max-width: 440px;
     padding: var(--space-10) var(--space-6);
     border-radius: var(--radius-4);
     box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     border: 1px solid rgba(255,255,255,0.05);
     
-    text-align: center;
-    /* margin: 0 var(--space-4); */
-    /* width: calc(100% - var(--space-8)); */
-    /* max-width: 440px; */
-
     backdrop-filter: blur(6px);
 }
 
@@ -100,12 +92,12 @@ body {
 }
 
 .password-generator__result {
-    width: 100%;  
+    width: 100%;
     margin: 0;
-    padding: var(--space-4);   
-    
+    padding: var(--space-4) var(--space-3);
+
     display: flex;
-    align-items: center;    
+    align-items: center; 
     
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
@@ -117,20 +109,18 @@ body {
 .password-generator__password-display {
     font-size: var(--text-base);
     width: 100%;
-    color: #ffffffe4;
+    color: var(--color-text);
     border: none;
-    outline: none;
-
-    
+    outline: none;   
     
     background-color: transparent;
     margin-left: var(--space-1);
-
 }
 
 .password-generator__password-display::placeholder {
-    letter-spacing: 0px;
+    letter-spacing: .6px;
     color: rgba(255, 255, 255, 0.216);
+    /* vertical-align: middle; */
 }
 
 
@@ -138,13 +128,12 @@ body {
 
 
 .password-generator__copy-btn {
-    cursor: pointer;
-    opacity: 0.3;
-    font-size: var(--text-2xl);
-    margin-right: var(--space-1);
-    color: rgba(255, 255, 255, 0.216);
-
-    transition: transform 0.1s ease, color 0.1s ease;
+  opacity: 0.6;
+  font-size: var(--text-2xl);
+  color: rgba(255, 255, 255, 0.216);
+  cursor: pointer;
+  
+  transition: transform 0.1s ease, color 0.1s ease;
 }
 
 
@@ -171,7 +160,7 @@ body {
 
 .password-generator__controls {
     width: 100%;
-    padding: var(--space-8) 0;
+    padding-top: var(--space-4);
 }
 
 .password-generator__length {
@@ -183,43 +172,22 @@ body {
 
 
 
-.password-generator__settings-title {    
-    margin-top: var(--space-8);
-}
-
-.password-generator__settings {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-2);
-    gap: var(--space-4);
-    margin-top: var(--space-8);
-
-}
-
-
-
-
-
-
-
-
-
-
 /***** GENERATE BUTTON *****/
 
 .password-generator__generate-btn {
-    font-size: var(--text-xl);
+    font-size: var(--text-base);
     color: var(--color-text);
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    
 
     border: none;
     padding: var(--space-4) 0;
-    width: 90%;
-    margin-top: var(--space-6);
+    width: 100%;
     border-radius: var(--radius-3);
 
-    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    background: linear-gradient(135deg, var(--color-accent), #4f46e5);
     box-shadow: 0 6px 20px rgba(79,70,229,0.35);
 
     cursor: pointer;
@@ -246,8 +214,6 @@ body {
     display: none;
 }
 
-
-/* ----------------------- */
 
 
 /* ===== TAB BAR ===== */
@@ -314,15 +280,17 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    padding: var(--space-6);
+    padding-top: var(--space-3);
+    margin: var(--space-6) 0 var(--space-10);
 
     /* Reset de estilos por defecto del fieldset */
     border: none;
-    padding-top: 0;
+    /* padding-top: 0; */
 }
 
 
 .password-generator__settings-title {
+    padding: 0 var(--space-1);
     margin-top: var(--space-8);
     margin-bottom: var(--space-2);
     font-size: var(--text-xs);
@@ -395,8 +363,8 @@ body {
 
 /* Estado activo — cuando el checkbox está marcado */
 .toggle__input:checked + .toggle__track {
-    background: #6366f1;
-    border-color: #6366f1;
+    background: var(--color-accent);
+    border-color: var(--color-accent);
 }
 
 .toggle__input:checked + .toggle__track .toggle__thumb {
@@ -412,11 +380,13 @@ body {
 .password-generator__length {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
-    padding: 0 var(--space-2);
-}
-
-.password-generator__length-header {
+    /* gap: var(--space-3); */
+    padding: 0 var(--space-1);
+    width: 100%;
+  }
+  
+  .password-generator__length-header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -432,7 +402,7 @@ body {
 .password-generator__length-value {
     font-size: var(--text-sm);
     font-weight: 600;
-    color: #6366f1;
+    color: var(--color-accent);
 }
 
 .slider {
@@ -444,6 +414,7 @@ body {
     background: rgba(255, 255, 255, 0.1);
     outline: none;
     cursor: pointer;
+    width: 100%;
 }
 
 /* Thumb — Chrome, Safari, Edge */
@@ -454,7 +425,7 @@ body {
     height: 18px;
     border-radius: var(--radius-full);
     background: #fff;
-    border: 2px solid #6366f1;
+    border: 2px solid var(--color-accent);
     cursor: pointer;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -465,7 +436,7 @@ body {
     height: 18px;
     border-radius: var(--radius-full);
     background: #fff;
-    border: 2px solid #6366f1;
+    border: 2px solid var(--color-accent);
     cursor: pointer;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -490,6 +461,26 @@ body {
 /* ===== STRENGTH INDICATOR ===== */
 
 
+
+/* ===== contenedor de las barras: ===== */
+
+.password-strength {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-1);
+    width: 100%;
+}
+
+.password-strength__bars {
+    display: flex;
+    gap: var(--space-1);
+    width: 100%;
+}
+
+
+
 /* Estado base — barras siempre visibles pero apagadas */
 .password-strength__bar {
     height: 4px;
@@ -503,85 +494,12 @@ body {
 .password-strength__label {
     font-size: var(--text-xs);
     letter-spacing: 0.5px;
-    min-height: 1em; /* reserva espacio aunque esté vacío */
+    min-height: 1.3em; /* reserva espacio aunque esté vacío */
     transition: color 0.3s ease;
 }
 
 
-
-
-
-
-
-/* ===== contenedor de las barras: ===== */
-
-.password-strength {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-3) 0;
-    width: 100%;
-}
-
-.password-strength__bars {
-    display: flex;
-    gap: var(--space-2);
-    width: 100%;
-}
-
-
-
-
-
-/* ===== estados activos que JS activa agregando la clase al contenedor ===== */
-
-
-/* Weak — 1 barra roja */
-/* .password-strength.weak .password-strength__bar:nth-child(1) {
-    background: #ef4444;
-}
-.password-strength.weak .password-strength__label {
-    color: #ef4444;
-} */
-
-/* Fair — 2 barras naranjas */
-/* .password-strength.fair .password-strength__bar:nth-child(1),
-.password-strength.fair .password-strength__bar:nth-child(2) {
-    background: #f97316;
-}
-.password-strength.fair .password-strength__label {
-    color: #f97316;
-} */
-
-/* Strong — 3 barras verdes */
-/* .password-strength.strong .password-strength__bar:nth-child(1),
-.password-strength.strong .password-strength__bar:nth-child(2),
-.password-strength.strong .password-strength__bar:nth-child(3) {
-    background: #22c55e;
-}
-.password-strength.strong .password-strength__label {
-    color: #22c55e;
-} */
-
-/* Very strong — 4 barras verdes intensas */
-/* .password-strength.very-strong .password-strength__bar:nth-child(1),
-.password-strength.very-strong .password-strength__bar:nth-child(2),
-.password-strength.very-strong .password-strength__bar:nth-child(3),
-.password-strength.very-strong .password-strength__bar:nth-child(4) {
-    background: #16a34a;
-}
-.password-strength.very-strong .password-strength__label {
-    color: #16a34a;
-} */
-
-
-
-
-
-
-
-/***** refactor strength indicator *****/
+/***** strength indicator *****/
 
 .password-strength.weak .password-strength__bar:nth-child(1) {
   background-color: #ef4444;
@@ -610,8 +528,6 @@ body {
 .password-strength.very-strong .password-strength__label {
   color: #16a34a;
 }
-
-
 
 
 
