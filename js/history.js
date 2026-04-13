@@ -10,66 +10,75 @@ const STORAGE_KEY = 'passwordHistory';
 let passwordHistory = [];
 
 const getPasswordHistory = () => {
-    try {
-        passwordHistory = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
-    } catch (error) {
-        console.error(`Error reading ${STORAGE_KEY} from localStorage:`, error);
-    }
+  try {
+    passwordHistory = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
+  } catch (error) {
+    console.error(`Error reading ${STORAGE_KEY} from localStorage:`, error);
+  }
 };
 
 
 const savePasswordToHistory = (passwordEntry) => {
-    try {
-        passwordHistory.push(passwordEntry);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(passwordHistory));
-    } catch (error) {
-        console.error(`Error saving ${STORAGE_KEY} to localStorage:`, error);
-    }
+  try {
+    passwordHistory.push(passwordEntry);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(passwordHistory));
+  } catch (error) {
+    console.error(`Error saving ${STORAGE_KEY} to localStorage:`, error);
+  }
 };
 
+
+
+
+/* --------------- create history item ---------------*/
+
+const formatter = new Intl.DateTimeFormat('en-US', {
+  month: 'short',     // "Jan"
+  day: 'numeric',     // "3"
+  hour: 'numeric',    // "10"
+  minute: '2-digit',  // "42"
+  hour12: true        // AM/PM
+});
+
+const createHistoryItem = (passwordEntry) => {
+  const date = formatter.format(new Date(passwordEntry.createdAt));
+  const strength = passwordEntry.strength;
+
+  const li = document.createElement('li');
+  li.classList.add('history-item');
+
+  li.innerHTML = `
+    <div class="history-item__main">
+      <span class="history-item__password">${passwordEntry.password}</span>
+      <button class="history-item__copy-btn" data-password="${passwordEntry.password}" aria-label="Copy password">
+          <i class="fa-regular fa-copy"></i>
+      </button>
+    </div>
+    <div class="history-item__meta">
+      <span class="history-item__strength ${strength.toLowerCase().replace(' ', '-')}">${strength}</span>
+      <span class="history-item__date">${date}</span>
+    </div>
+  `;
+  return li;
+};
 
 
 
 /* --------------- render history ---------------*/
 
-const formatter = new Intl.DateTimeFormat('en-US', {
-    month: 'short',     // "Jan"
-    day: 'numeric',     // "3"
-    hour: 'numeric',    // "10"
-    minute: '2-digit',  // "42"
-    hour12: true        // AM/PM
-});
-
 const renderHistory = () => {
-    uiElements.ulPasswordHistory.replaceChildren();
-        if (!passwordHistory.length) {
-            uiElements.deleteHistoryBtn.classList.add('hidden');
-            const emptyMessage = document.createElement('li');
-            emptyMessage.textContent = 'No history yet';
-            emptyMessage.classList.add('history-empty');
-            uiElements.ulPasswordHistory.appendChild(emptyMessage);
-        } else {            
-            uiElements.deleteHistoryBtn.classList.remove('hidden');
-            passwordHistory.forEach((passwordEntry) => {
-                const li = document.createElement('li');
-                const passwordSpan = document.createElement('span');
-                const strengthSpan = document.createElement('span');
-                const dateSpan = document.createElement('span');
-                const copyBtn = document.createElement('i');
-                copyBtn.classList.add('fa-regular', 'fa-copy', 'history-copy-btn');
-                copyBtn.dataset.password = passwordEntry.password;
-                li.classList.add('history-item');
-                const date = formatter.format(new Date(passwordEntry.createdAt));        
-                passwordSpan.textContent = passwordEntry.password;
-                strengthSpan.textContent = passwordEntry.strength;
-                dateSpan.textContent = date;
-                li.appendChild(passwordSpan);
-                li.appendChild(strengthSpan);
-                li.appendChild(dateSpan);
-                li.appendChild(copyBtn);
-                uiElements.ulPasswordHistory.appendChild(li);
-            });
-        }
+  uiElements.ulPasswordHistory.replaceChildren();
+
+  if (!passwordHistory.length) {
+    uiElements.deleteHistoryBtn.classList.add('hidden');
+    uiElements.ulPasswordHistory.innerHTML = `
+    <li class="history__empty">No history yet</li>
+    `;
+    return;
+  }
+
+  uiElements.deleteHistoryBtn.classList.remove('hidden');
+  passwordHistory.forEach((entry) => uiElements.ulPasswordHistory.appendChild(createHistoryItem(entry)));
 };
 
 
@@ -77,12 +86,12 @@ const renderHistory = () => {
 /* --------------- history copy click ---------------*/
 
 const handleHistoryCopyClick = async (event) => {
-    const copyBtn = event.target.closest('.history-copy-btn');
-    if (!copyBtn) return;
-    const passwordToCopy = copyBtn.dataset.password;
-    const isSuccessful = await copyToClipboard(passwordToCopy);
-    if (!isSuccessful) return;
-    showToast();
+  const copyBtn = event.target.closest('.history-item__copy-btn');
+  if (!copyBtn) return;
+  const passwordToCopy = copyBtn.dataset.password;
+  const isSuccessful = await copyToClipboard(passwordToCopy);
+  if (!isSuccessful) return;
+  showToast();
 };
 
 
@@ -90,16 +99,16 @@ const handleHistoryCopyClick = async (event) => {
 /* --------------- delete history ---------------*/
 
 const handleDeleteHistoryClick = () => {
-    passwordHistory = [];
-    localStorage.removeItem(STORAGE_KEY);
-    renderHistory();
+  passwordHistory = [];
+  localStorage.removeItem(STORAGE_KEY);
+  renderHistory();
 };
 
 
 const initHistory = () => {
-    getPasswordHistory();
-    uiElements.deleteHistoryBtn.addEventListener('click', handleDeleteHistoryClick);
-    uiElements.ulPasswordHistory.addEventListener('click', handleHistoryCopyClick);
+  getPasswordHistory();
+  uiElements.deleteHistoryBtn.addEventListener('click', handleDeleteHistoryClick);
+  uiElements.ulPasswordHistory.addEventListener('click', handleHistoryCopyClick);
 };
 
 
