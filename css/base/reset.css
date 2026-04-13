@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Google Sans, Arial, Helvetica, sans-serif;
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: radial-gradient(circle at top, #0f172a, #020617);
+}

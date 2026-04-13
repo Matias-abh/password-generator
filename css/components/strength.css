@@ -1,0 +1,86 @@
+/**
+ * PASSWORD STRENGTH METER
+ * Visual feedback component that indicates password security levels.
+ */
+
+.password-strength {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-1);
+  width: 100%;
+}
+
+.password-strength__bars {
+  display: flex;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+/**
+ * Base State
+ * Bars are always visible but dimmed by default.
+ */
+.password-strength__bar {
+  height: 4px;
+  flex: 1;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  transition: background 0.3s ease;
+}
+
+/**
+ * Feedback Label
+ * The text content (Weak, Strong, etc.) is injected via JavaScript.
+ */
+.password-strength__label {
+  font-size: var(--text-xs);
+  letter-spacing: 0.5px;
+  min-height: 1.3em;
+  transition: color 0.3s ease;
+}
+
+
+
+/* ==========================================================================
+   DYNAMIC STRENGTH STATES
+   These states are applied to the parent container via JavaScript.
+   The color logic cascades down to the bars and the label.
+   ========================================================================== */
+
+/* Weak State - 1st bar active */
+.password-strength.weak .password-strength__bar:nth-child(1) {
+  background-color: #ef4444;
+}
+
+.password-strength.weak .password-strength__label {
+  color: #ef4444;
+}
+
+/* Fair State - First 2 bars active */
+.password-strength.fair .password-strength__bar:nth-child(-n+2) {
+  background-color: #f97316;
+}
+
+.password-strength.fair .password-strength__label {
+  color: #f97316;
+}
+
+/* Strong State - First 3 bars active */
+.password-strength.strong .password-strength__bar:nth-child(-n+3) {
+  background-color: #22c55e;
+}
+
+.password-strength.strong .password-strength__label {
+  color: #22c55e;
+}
+
+/* Very Strong State - All 4 bars active */
+.password-strength.very-strong .password-strength__bar:nth-child(-n+4) {
+  background-color: #16a34a;
+}
+
+.password-strength.very-strong .password-strength__label {
+  color: #16a34a;
+}

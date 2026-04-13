@@ -1,0 +1,143 @@
+/**
+ * PASSWORD LENGTH SECTION
+ * Layout for the label and the dynamic value indicator.
+ */
+
+.password-generator__length {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+
+.password-generator__length-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.password-generator__length-label {
+  font-size: var(--text-xs);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.password-generator__length-value {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+
+
+/* ==========================================================================
+   CUSTOM RANGE SLIDER
+   Custom styles for the native <input type="range">.
+   Note: Prefixes are separated as browsers drop the entire rule if it 
+   contains an unknown pseudo-element.
+   ========================================================================== */
+
+.slider {
+  appearance: none;
+  -webkit-appearance: none;
+  /* Required for Chrome/Safari */
+  width: 100%;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/**
+ * SLIDER THUMB STYLES
+ * The 'thumb' is the draggable handle. 
+ * We must define styles twice for cross-browser compatibility.
+ */
+
+/* Chrome, Safari, Edge and Opera */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background: #fff;
+  border: 2px solid var(--color-accent);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Firefox */
+.slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background: #fff;
+  border: 2px solid var(--color-accent);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+
+
+/* ==========================================================================
+   INTERACTIVE STATES
+   ========================================================================== */
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.2);
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.2);
+}
+
+/**
+ * Keyboard Focus State
+ */
+.slider:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+
+/* ==========================================================================
+   GENERATE BUTTON
+   ========================================================================== */
+
+.password-generator__generate-btn {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+
+  border: none;
+  padding: var(--space-4) 0;
+  width: 100%;
+  border-radius: var(--radius-3);
+
+  background: linear-gradient(135deg, var(--color-accent), #4f46e5);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35);
+
+  cursor: pointer;
+  transition: 0.2s ease;
+
+}
+
+.generate-btn-active:active {
+  transform: scale(.96);
+}
+
+.password-generator__generate-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}

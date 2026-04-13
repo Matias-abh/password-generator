@@ -1,0 +1,55 @@
+/**
+ * GENERATOR CONTROLS
+ * Layout container for all interactive settings and options.
+ */
+
+.password-generator__controls {
+  width: 100%;
+  padding-top: var(--space-4);
+}
+
+/**
+ * SETTINGS GROUP
+ * Vertical stack for password configuration options.
+ */
+.password-generator__settings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-3);
+  margin: var(--space-6) 0 var(--space-10);
+  border: none;
+  /* Removes default fieldset border if used */
+}
+
+.password-generator__settings-title {
+  padding: 0 var(--space-1);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-2);
+  font-size: var(--text-xs);
+  letter-spacing: 1px;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+/**
+ * INTERACTIVE SETTINGS ROW
+ * Clickable container that wraps a label and its corresponding control (e.g., toggle).
+ */
+.settings-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-3);
+  cursor: pointer;
+}
+
+.settings-option__label {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  /* Ensures consistency when hovering text vs container */
+}

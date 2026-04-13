@@ -1,119 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Password Generator</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script type="module" src="./js/app.js"></script>        
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Password Generator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <script type="module" src="./js/app.js"></script>
 
 </head>
+
 <body>
   <main class="app">
-      
-      <section class="view" data-view="generator">
-          <header class="header">
-              <h2 class="header__title">Password Generator</h2>
-              <p class="header__subtitle">
-                  Generate a secure password instantly
-              </p>
-          </header>
-          <section class="password-generator">
-              
-              <div class="password-generator__result">
-                  <input type="text" id="input" class="password-generator__password-display" placeholder="Create password" readonly>
-                  <i class="password-generator__copy-btn fa-regular fa-copy"></i>
-              </div>
 
-              <div class="password-strength">
-                <div class="password-strength__bars">
-                  <span class="password-strength__bar"></span>
-                  <span class="password-strength__bar"></span>
-                  <span class="password-strength__bar"></span>
-                  <span class="password-strength__bar"></span>
-                </div>
-                <span class="password-strength__label"></span>
-              </div>
-              
-              <div class="password-generator__controls">
-                  
-                  <div class="password-generator__length">
-                    <div class="password-generator__length-header">
-                      <label for="password-length" class="password-generator__length-label">Length</label>
-                      <span class="password-generator__length-value"></span>
-                    </div>
-                    <input type="range" id="password-length" class="slider" min="4" max="32" value=""/>
-                  </div>
-                  
-                  <fieldset class="password-generator__settings">            
-                    <legend class="password-generator__settings-title">Settings</legend>
-                    
-                    <div class="settings-option">
-                      <span class="settings-option__label">Include Uppercase</span>                        
-                      <div class="toggle">
-                        <input type="checkbox" id="include-uppercase" class="option-checkbox toggle__input"/>
-                        <label for="include-uppercase" class="toggle__track">
-                          <span class="toggle__thumb"></span>
-                        </label>
-                      </div>
-                    </div>
-                    
-                    <div class="settings-option">
-                      <span class="settings-option__label">Include Lowercase</span>                        
-                      <div class="toggle">
-                        <input type="checkbox" id="include-lowercase" class="option-checkbox toggle__input"/>
-                        <label for="include-lowercase" class="toggle__track">
-                          <span class="toggle__thumb"></span>
-                        </label>
-                      </div>
-                    </div>
+    <section class="view" data-view="generator">
+      <header class="header">
+        <h2 class="header__title">Password Generator</h2>
+        <p class="header__subtitle">
+          Generate a secure password instantly
+        </p>
+      </header>
+      <section class="password-generator">
 
-                    <div class="settings-option">
-                      <span class="settings-option__label">Include Numbers</span>                        
-                      <div class="toggle">
-                        <input type="checkbox" id="include-number" class="option-checkbox toggle__input"/>
-                        <label for="include-number" class="toggle__track">
-                          <span class="toggle__thumb"></span>
-                        </label>
-                      </div>
-                    </div>                        
-                    
-                    <div class="settings-option">
-                      <span class="settings-option__label">Include Symbols</span>                        
-                      <div class="toggle">
-                        <input type="checkbox" id="include-symbol" class="option-checkbox toggle__input"/>
-                        <label for="include-symbol" class="toggle__track">
-                          <span class="toggle__thumb"></span>
-                        </label>
-                      </div>
-                    </div>
-                  </fieldset>
-                    
-              </div>
-              <button disabled class="password-generator__generate-btn">Generate Password</button>
-          </section>
-      </section>
-          
-      <section class="view hidden" data-view="history">
-          <div class="history-password">
-              <ul class="history-password__ul">
-              </ul>
+        <div class="password-generator__result">
+          <input type="text" id="input" class="password-generator__password-display" placeholder="Create password"
+            readonly>
+          <i class="password-generator__copy-btn fa-regular fa-copy"></i>
+        </div>
+
+        <div class="password-strength">
+          <div class="password-strength__bars">
+            <span class="password-strength__bar"></span>
+            <span class="password-strength__bar"></span>
+            <span class="password-strength__bar"></span>
+            <span class="password-strength__bar"></span>
           </div>
-          <button class="delete-history-password">Delete history</button>
+          <span class="password-strength__label"></span>
+        </div>
+
+        <div class="password-generator__controls">
+
+          <div class="password-generator__length">
+            <div class="password-generator__length-header">
+              <label for="password-length" class="password-generator__length-label">Length</label>
+              <span class="password-generator__length-value"></span>
+            </div>
+            <input type="range" id="password-length" class="slider" min="4" max="32" value="" />
+          </div>
+
+          <fieldset class="password-generator__settings">
+            <legend class="password-generator__settings-title">Settings</legend>
+
+            <div class="settings-option">
+              <span class="settings-option__label">Include Uppercase</span>
+              <div class="toggle">
+                <input type="checkbox" id="include-uppercase" class="option-checkbox toggle__input" />
+                <label for="include-uppercase" class="toggle__track">
+                  <span class="toggle__thumb"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="settings-option">
+              <span class="settings-option__label">Include Lowercase</span>
+              <div class="toggle">
+                <input type="checkbox" id="include-lowercase" class="option-checkbox toggle__input" />
+                <label for="include-lowercase" class="toggle__track">
+                  <span class="toggle__thumb"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="settings-option">
+              <span class="settings-option__label">Include Numbers</span>
+              <div class="toggle">
+                <input type="checkbox" id="include-number" class="option-checkbox toggle__input" />
+                <label for="include-number" class="toggle__track">
+                  <span class="toggle__thumb"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="settings-option">
+              <span class="settings-option__label">Include Symbols</span>
+              <div class="toggle">
+                <input type="checkbox" id="include-symbol" class="option-checkbox toggle__input" />
+                <label for="include-symbol" class="toggle__track">
+                  <span class="toggle__thumb"></span>
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+        </div>
+        <button disabled class="password-generator__generate-btn">Generate Password</button>
       </section>
+    </section>
+
+    <section class="view hidden" data-view="history">
+      <div class="history-password">
+        <ul class="history-password__ul">
+        </ul>
+      </div>
+      <button class="delete-history-password">Delete history</button>
+    </section>
 
   </main>
 
   <nav class="button-nav">
-      <button class="button-nav__btn" data-target="generator">Gen</button>
-      <button class="button-nav__btn" data-target="history">Hist</button>
+    <button class="button-nav__btn" data-target="generator">Gen</button>
+    <button class="button-nav__btn" data-target="history">Hist</button>
   </nav>
 
   <div class="toast hidden">Copied!</div>
 
 </body>
+
 </html>

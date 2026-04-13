@@ -1,0 +1,59 @@
+/**
+ * MAIN NAVIGATION BAR
+ * Floating navigation container anchored to the bottom of the viewport.
+ * Uses glassmorphism effects for a modern UI look.
+ */
+
+.button-nav {
+  position: fixed;
+  bottom: var(--space-8);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
+  padding: var(--space-1);
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(12px);
+
+  display: flex;
+  gap: var(--space-1);
+
+}
+
+/**
+ * NAV BUTTON ITEM
+ */
+.button-nav__btn {
+  padding: var(--space-3) var(--space-6);
+  border: none;
+  border-radius: var(--radius-full);
+
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+
+  /* Default inactive state */
+  background: transparent;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+
+
+/* ==========================================================================
+   INTERACTIVE STATES
+   ========================================================================== */
+
+/**
+ * ACTIVE STATE
+ * Applied via JavaScript to highlight the current section/view.
+ */
+.button-nav__btn--active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
