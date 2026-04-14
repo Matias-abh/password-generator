@@ -77,3 +77,40 @@
   color: #2ecc71;
   font-weight: bold;
 }
+
+
+
+/* ==========================================================================
+   GENERATE BUTTON
+   ========================================================================== */
+
+.password-generator__generate-btn {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+
+  border: none;
+  padding: var(--space-4) 0;
+  width: 100%;
+  border-radius: var(--radius-3);
+
+  background: linear-gradient(135deg, var(--color-accent), #4f46e5);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35);
+
+  cursor: pointer;
+  transition: 0.2s ease;
+
+}
+
+.generate-btn-active:active {
+  transform: scale(.96);
+}
+
+.password-generator__generate-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
