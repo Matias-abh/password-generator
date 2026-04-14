@@ -34,8 +34,6 @@ const updateStrengthIndicator = () => {
 
   uiElements.strengthContainer.classList.remove(...STRENGTH_CLASSES);
   uiElements.strengthContainer.classList.add(strengthKey);
-  console.log('strength--->', displayText);
-
   uiElements.strengthLabel.textContent = displayText;
   return displayText;
 };
