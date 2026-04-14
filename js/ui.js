@@ -22,6 +22,9 @@ const uiElements = {
   optionCheckboxes: document.querySelectorAll('.option-checkbox'),
 
   deleteHistoryBtn: document.querySelector('.history__delete-btn'),
+  confirmDeleteBtn: document.querySelector('.confirm-delete'),
+  cancelDeleteBtn: document.querySelector('.cancel-delete'),
+  deleteHistoryModal: document.querySelector('.modal'),
 };
 
 export { uiElements };

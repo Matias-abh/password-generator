@@ -1,6 +1,7 @@
 import { uiElements } from './ui.js';
 import { showToast } from './utils.js';
 import { copyToClipboard } from './copy-password.js';
+import { openDeleteHistoryModal, closeDeleteHistoryModal } from './modal.js';
 
 
 /* --------------- password history ---------------*/
@@ -102,13 +103,18 @@ const handleDeleteHistoryClick = () => {
   passwordHistory = [];
   localStorage.removeItem(STORAGE_KEY);
   renderHistory();
+  closeDeleteHistoryModal();
 };
+
+
 
 
 const initHistory = () => {
   getPasswordHistory();
-  uiElements.deleteHistoryBtn.addEventListener('click', handleDeleteHistoryClick);
+  uiElements.deleteHistoryBtn.addEventListener('click', openDeleteHistoryModal);
   uiElements.ulPasswordHistory.addEventListener('click', handleHistoryCopyClick);
+  uiElements.cancelDeleteBtn.addEventListener('click', closeDeleteHistoryModal);
+  uiElements.confirmDeleteBtn.addEventListener('click', handleDeleteHistoryClick);
 };
 
 

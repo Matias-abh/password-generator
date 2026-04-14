@@ -1,4 +1,7 @@
-/* ===== HISTORY VIEW ===== */
+/**
+ * PASSWORD HISTORY SECTION
+ * Displays a list of previously generated passwords with metadata.
+ */
 
 .history {
   display: flex;
@@ -16,6 +19,10 @@
 
 }
 
+/**
+ * EMPTY STATE
+ * Displayed when no passwords have been generated or saved yet.
+ */
 .history__empty {
   text-align: center;
   font-size: var(--text-sm);
@@ -32,7 +39,12 @@
   width: 100%;
 }
 
-/* ===== HISTORY ITEM ===== */
+
+
+/* ==========================================================================
+   HISTORY ITEM CARD
+   Individual entry showing the password, strength, and date.
+   ========================================================================== */
 
 .history-item {
   display: flex;
@@ -58,6 +70,10 @@
   gap: var(--space-3);
 }
 
+/**
+ * PASSWORD TEXT
+ * Uses ellipsis to handle long passwords without breaking the layout.
+ */
 .history-item__password {
   font-size: var(--text-sm);
   color: rgba(255, 255, 255, 0.9);
@@ -91,14 +107,13 @@
   justify-content: space-between;
 }
 
+/* Strength status colors */
 .history-item__strength {
   font-size: var(--text-xs);
   font-weight: 400;
   letter-spacing: 0.5px;
-  /* text-transform: uppercase; */
 }
 
-/* Colores del strength — mismos valores que el generator */
 .history-item__strength.weak {
   color: #ef4444;
 }
@@ -121,7 +136,12 @@
   letter-spacing: 0.3px;
 }
 
-/* ===== DELETE BUTTON ===== */
+
+
+/* ==========================================================================
+   DANGEROUS ACTIONS
+   Buttons for destructive operations like clearing history.
+   ========================================================================== */
 
 .history__delete-btn {
   display: flex;

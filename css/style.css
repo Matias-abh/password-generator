@@ -15,6 +15,7 @@
 @import './components/strength.css';
 @import './components/tab-bar.css';
 @import './components/history.css';
+@import './components/modal.css';
 
 /* ===== UTILITIES ===== */
 @import './base/utilities.css';
