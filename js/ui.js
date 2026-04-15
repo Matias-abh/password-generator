@@ -21,6 +21,8 @@ const uiElements = {
 
   optionCheckboxes: document.querySelectorAll('.option-checkbox'),
 
+  historyCount: document.querySelector('.history__count'),
+
   deleteHistoryBtn: document.querySelector('.history__delete-btn'),
   confirmDeleteBtn: document.querySelector('.confirm-delete'),
   cancelDeleteBtn: document.querySelector('.cancel-delete'),
