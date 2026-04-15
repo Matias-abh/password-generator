@@ -5,7 +5,7 @@ import { savePasswordToHistory } from './history.js';
 const UPPERCASE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const LOWERCASE_CHARACTERS = "abcdefghijklmnopqrstuvwxyz";
 const NUMBER_CHARACTERS = "0123456789";
-const SYMBOL_CHARACTERS = "!@#$%^&*()_+?:{}[]<>/";
+const SYMBOL_CHARACTERS = "!@#$%^&*()_+?:{}[]/";
 
 
 /* --------------- generate password ---------------*/
