@@ -10,14 +10,11 @@
   gap: var(--space-4);
 }
 
-.history__title {
-  font-size: var(--text-2xl);
-  letter-spacing: 0.5px;
-  margin-bottom: var(--space-8);
-  font-weight: 700;
-  text-align: center;
-
+.icon-password-history {
+  width: 1.3em;
+  height: 1.3em;
 }
+
 
 /**
  * EMPTY STATE
@@ -44,6 +41,30 @@
 
 .history__list:has(.history__empty) {
   min-height: 440px;
+}
+
+.history__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: var(--space-3);
+}
+
+.history__title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.history__count {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.5px;
 }
 
 

@@ -69,6 +69,7 @@ const createHistoryItem = (passwordEntry) => {
 
 const renderHistory = () => {
   uiElements.ulPasswordHistory.replaceChildren();
+  uiElements.historyCount.textContent = `${passwordHistory.length} password${passwordHistory.length !== 1 ? 's' : ''}`;
 
   if (!passwordHistory.length) {
     uiElements.deleteHistoryBtn.classList.add('hidden');

@@ -23,7 +23,8 @@
 
     <section class="view" data-view="generator">
       <header class="header">
-        <h2 class="header__title">Password Generator</h2>
+        <h2 class="header__title"><img class="header__logo" src="./assets/icons/logo-key.svg"
+            alt="Logo password generator" /> Password Generator</h2>
         <p class="header__subtitle">
           Generate a secure password instantly
         </p>
@@ -106,7 +107,11 @@
     </section>
 
     <section class="view hidden" data-view="history">
-      <h2 class="history__title">History</h2>
+      <div class="history__header">
+        <h2 class="history__title"><img class="icon-password-history" src="./assets/icons/icon-password-history.svg"
+            alt="Icon password history" /> History</h2>
+        <span class="history__count"></span>
+      </div>
       <div class="history">
         <ul class="history__list">
         </ul>
@@ -117,8 +122,12 @@
   </main>
 
   <nav class="button-nav">
-    <button class="button-nav__btn" data-target="generator">Gen</button>
-    <button class="button-nav__btn" data-target="history">Hist</button>
+    <button class="button-nav__btn" data-target="generator"><img class="icon-view-generator"
+        src="./assets/icons/icon-password-generator.svg" alt="Icon view generator" />Generator
+    </button>
+    <button class="button-nav__btn" data-target="history"><img class="icon-view-history"
+        src="./assets/icons/icon-password-history.svg" alt="Icon view history" />History
+    </button>
   </nav>
 
   <div class="toast hidden">Copied!</div>
