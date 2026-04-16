@@ -24,8 +24,8 @@ const uiElements = {
   historyCount: document.querySelector('.history__count'),
 
   deleteHistoryBtn: document.querySelector('.history__delete-btn'),
-  confirmDeleteBtn: document.querySelector('.confirm-delete'),
-  cancelDeleteBtn: document.querySelector('.cancel-delete'),
+  confirmDeleteBtn: document.querySelector('.modal__btn--danger'),
+  cancelDeleteBtn: document.querySelector('.modal__btn--cancel'),
   deleteHistoryModal: document.querySelector('.modal'),
 };
 
