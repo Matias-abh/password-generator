@@ -23,18 +23,22 @@
 
     <section class="view" data-view="generator">
       <header class="header">
-        <h2 class="header__title"><img class="header__logo" src="./assets/icons/logo-key.svg"
-            alt="Logo password generator" /> Password Generator</h2>
-        <p class="header__subtitle">
-          Generate a secure password instantly
-        </p>
+        <h2 class="header__title"><img class="header__logo" src="./assets/icons/logo-key.svg" alt="" /> Password
+          Generator</h2>
+        <p class="header__subtitle">Generate a secure password instantly</p>
       </header>
-      <section class="password-generator">
 
+      <section class="password-generator">
+        <div class="password-generator__current-password">
+          <span class="password-generator__label">Current password</span>
+          <span class="password-generator__current-length"></span>
+        </div>
         <div class="password-generator__result">
           <input type="text" id="input" class="password-generator__password-display" placeholder="Create password"
             readonly>
-          <i class="password-generator__copy-btn fa-regular fa-copy"></i>
+          <button class="password-generator__copy-btn">
+            <i class="fa-regular fa-copy"></i>
+          </button>
         </div>
 
         <div class="password-strength">
@@ -104,12 +108,13 @@
         </div>
         <button disabled class="password-generator__generate-btn">Generate Password</button>
       </section>
+
     </section>
 
     <section class="view hidden" data-view="history">
       <div class="history__header">
         <h2 class="history__title"><img class="icon-password-history" src="./assets/icons/icon-password-history.svg"
-            alt="Icon password history" /> History</h2>
+            alt="" /> History</h2>
         <span class="history__count"></span>
       </div>
       <div class="history">
@@ -123,10 +128,10 @@
 
   <nav class="button-nav">
     <button class="button-nav__btn" data-target="generator"><img class="icon-view-generator"
-        src="./assets/icons/icon-password-generator.svg" alt="Icon view generator" />Generator
+        src="./assets/icons/icon-password-generator.svg" alt="" />Generator
     </button>
     <button class="button-nav__btn" data-target="history"><img class="icon-view-history"
-        src="./assets/icons/icon-password-history.svg" alt="Icon view history" />History
+        src="./assets/icons/icon-password-history.svg" alt="" />History
     </button>
   </nav>
 

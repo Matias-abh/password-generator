@@ -6,12 +6,36 @@
 .password-generator {
   width: 100%;
   max-width: 440px;
-  padding: var(--space-10) var(--space-6);
+  padding: var(--space-6) var(--space-4);
   border-radius: var(--radius-4);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.05);
 
   backdrop-filter: blur(6px);
+}
+
+.password-generator__current-password {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--space-1);
+}
+
+.password-generator__label {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.5px;
+  display: block;
+  padding-bottom: var(--space-2);
+}
+
+.password-generator__current-length {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.5px;
+  display: block;
+  padding-bottom: var(--space-2);
+
 }
 
 /**
@@ -56,6 +80,8 @@
   opacity: 0.6;
   font-size: var(--text-2xl);
   color: rgba(255, 255, 255, 0.216);
+  background-color: transparent;
+  border: none;
   cursor: pointer;
 
   transition: transform 0.1s ease, color 0.1s ease;

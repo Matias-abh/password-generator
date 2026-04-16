@@ -58,6 +58,7 @@ const handleGenerateClick = () => {
 
   const passwordEntry = { password: generatedPassword, strength, createdAt: new Date() };
   savePasswordToHistory(passwordEntry);
+  uiElements.currentLengthLabel.textContent = passwordLength;
 };
 
 
@@ -83,6 +84,7 @@ const initGeneratePassword = () => {
   });
   uiElements.generateBtn.addEventListener('click', handleGenerateClick);
   uiElements.lengthSlider.addEventListener('input', handleLengthSlider);
+  uiElements.currentLengthLabel.textContent = '0';
 };
 
 export { initGeneratePassword };

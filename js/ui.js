@@ -6,6 +6,7 @@ const uiElements = {
   ulPasswordHistory: document.querySelector('.history__list'),
   toast: document.querySelector('.toast'),
 
+  currentLengthLabel: document.querySelector('.password-generator__current-length'),
   generateBtn: document.querySelector('.password-generator__generate-btn'),
   passwordDisplay: document.querySelector('.password-generator__password-display'),
   copyBtn: document.querySelector('.password-generator__copy-btn'),
