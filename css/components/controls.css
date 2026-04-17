@@ -16,20 +16,18 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  padding-top: var(--space-3);
-  margin: var(--space-6) 0 var(--space-6);
+  padding-top: var(--space-5);
+  margin: var(--space-3) 0 var(--space-5);
   border: none;
   /* Removes default fieldset border if used */
 }
 
 .password-generator__settings-title {
-  padding: 0 var(--space-1);
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-2);
   font-size: var(--text-xs);
   letter-spacing: 1px;
-  opacity: 0.5;
+  opacity: 0.4;
   text-transform: uppercase;
+  padding: 0 var(--space-1);
 }
 
 /**

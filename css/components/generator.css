@@ -23,19 +23,18 @@
 
 .password-generator__label {
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.3);
-  letter-spacing: 0.5px;
+  color: var(--color-secondary-text);
+  letter-spacing: .5px;
   display: block;
   padding-bottom: var(--space-2);
 }
 
 .password-generator__current-length {
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--color-secondary-text);
   letter-spacing: 0.5px;
   display: block;
   padding-bottom: var(--space-2);
-
 }
 
 /**
@@ -94,7 +93,6 @@
  * These classes are toggled via JavaScript after successful clipboard copy.
  */
 .password-generator__copy-btn--success {
-  cursor: not-allowed;
   color: #2ecc71;
   transform: rotate(360deg) scale(1.06);
 }

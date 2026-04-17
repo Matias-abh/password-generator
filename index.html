@@ -67,7 +67,13 @@
               <label for="password-length" class="password-generator__length-label">Length</label>
               <span class="password-generator__length-value"></span>
             </div>
-            <input type="range" id="password-length" class="slider" min="4" max="32" value="" />
+            <div class="password-generator__slider-container">
+              <input type="range" id="password-length" class="slider" min="4" max="32" value="18" />
+              <div class="password-generator__range-indicators">
+                <span class="password-generator__range-value">4</span>
+                <span class="password-generator__range-value">32</span>
+              </div>
+            </div>
           </div>
 
           <fieldset class="password-generator__settings">
