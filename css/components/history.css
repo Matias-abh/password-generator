@@ -10,11 +10,6 @@
   gap: var(--space-4);
 }
 
-.icon-password-history {
-  width: 1.3em;
-  height: 1.3em;
-}
-
 
 /**
  * EMPTY STATE
@@ -52,18 +47,25 @@
   margin-bottom: var(--space-3);
 }
 
+.history__header__group {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.histoy__header__icon {
+  width: 1.6em;
+  height: 1.6em;
+}
+
 .history__title {
   font-size: var(--text-xl);
   font-weight: 700;
   letter-spacing: 0.3px;
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
 }
 
 .history__count {
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--color-secondary-text);
   letter-spacing: 0.5px;
 }
 
@@ -138,8 +140,8 @@
 
 /* Strength status colors */
 .history-item__strength {
-  font-size: var(--text-xs);
-  font-weight: 400;
+  font-size: var(--text-2xs);
+  font-weight: 500;
   letter-spacing: 0.5px;
 }
 
@@ -160,8 +162,8 @@
 }
 
 .history-item__date {
-  font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.3);
+  font-size: var(--text-2xs);
+  color: var(--color-secondary-text);
   letter-spacing: 0.3px;
 }
 

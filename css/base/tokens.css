@@ -1,4 +1,5 @@
 :root {
+    --text-2xs:   0.625rem;  /* 10px —  */
     --text-xs:   0.75rem;  /* 12px — labels, captions */
     --text-sm:   0.875rem; /* 14px — texto secundario */
     --text-base: 1rem;     /* 16px — cuerpo de texto */
@@ -19,12 +20,14 @@
     --space-12: 3rem;     /* 48px */
     --space-16: 4rem;     /* 64px */
     --space-20: 5rem;     /* 80px */
+    --space-22: 5.5rem;   /* 88px */
     --space-24: 6rem;     /* 96px */
 
     --color-accent: #6366f1;
     --color-primary: #543d83;
     --color-secondary: #402f63;
     --color-text: #fff;
+    --color-secondary-text: rgba(255, 255, 255, 0.3);
 
     --radius-1: 4px;        /*  4px */     
     --radius-2: 8px;        /*  8px */     

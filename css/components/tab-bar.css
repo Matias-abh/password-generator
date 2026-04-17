@@ -27,9 +27,10 @@
  * NAV BUTTON ITEM
  */
 .button-nav__btn {
-  padding: var(--space-3) var(--space-6);
+  padding: var(--space-1) var(--space-4);
   border: none;
   border-radius: var(--radius-full);
+  width: var(--space-22);
 
 
   font-size: var(--text-xs);
@@ -49,6 +50,23 @@
   justify-content: center;
   gap: var(--space-1);
 
+}
+
+.button-nav__icon {
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+
+  transition: color 0.1s ease, scale 0.1s ease;
+}
+
+.button-nav__text {
+  pointer-events: none;
+}
+
+.button-nav__btn:hover .button-nav__icon {
+  color: rgba(99, 102, 241, .6);
+  transform: scale(1.06);
 }
 
 .icon-view-generator {
@@ -71,7 +89,12 @@
  */
 .button-nav__btn--active {
   background: rgba(255, 255, 255, 0.12);
-  border: 2px solid rgba(99, 102, 241, .6);
-
+  /* border: 2px solid rgba(99, 102, 241, .6); */
   color: #fff;
 }
+/* 
+.button-nav__btn--active .button-nav__icon {
+  filter: drop-shadow(0 0 2px currentColor);
+} */
+
+/* *****************************/

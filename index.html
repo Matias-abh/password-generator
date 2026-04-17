@@ -22,10 +22,19 @@
   <main class="app">
 
     <section class="view" data-view="generator">
+
       <header class="header">
-        <h2 class="header__title"><img class="header__logo" src="./assets/icons/logo-key.svg" alt="" /> Password
-          Generator</h2>
-        <p class="header__subtitle">Generate a secure password instantly</p>
+        <div class="header__content">
+          <div class="header__group">
+            <svg class="header__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" />
+              <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" />
+            </svg>
+            <h1 class="header__title">Password Generator</h1>
+          </div>
+          <p class="header__subtitle">Generate a secure password instantly</p>
+        </div>
       </header>
 
       <section class="password-generator">
@@ -112,11 +121,18 @@
     </section>
 
     <section class="view hidden" data-view="history">
-      <div class="history__header">
-        <h2 class="history__title"><img class="icon-password-history" src="./assets/icons/icon-password-history.svg"
-            alt="" /> History</h2>
+      <header class="history__header">
+        <div class="history__header__group">
+          <svg class="histoy__header__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+            <path d="M3 3v5h5" />
+            <path d="M12 7v5l4 2" />
+          </svg>
+          <h2 class="history__title">History</h2>
+        </div>
         <span class="history__count"></span>
-      </div>
+      </header>
       <div class="history">
         <ul class="history__list">
         </ul>
@@ -127,11 +143,22 @@
   </main>
 
   <nav class="button-nav">
-    <button class="button-nav__btn" data-target="generator"><img class="icon-view-generator"
-        src="./assets/icons/icon-password-generator.svg" alt="" />Generator
+    <button class="button-nav__btn" data-target="generator">
+      <svg class="button-nav__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" />
+        <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" />
+      </svg>
+      <span class="button-nav__text">Generator</span>
     </button>
-    <button class="button-nav__btn" data-target="history"><img class="icon-view-history"
-        src="./assets/icons/icon-password-history.svg" alt="" />History
+    <button class="button-nav__btn" data-target="history">
+      <svg class="button-nav__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+        <path d="M3 3v5h5" />
+        <path d="M12 7v5l4 2" />
+      </svg>
+      <span class="button-nav__text">History</span>
     </button>
   </nav>
 
