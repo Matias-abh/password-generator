@@ -7,6 +7,7 @@ import { openDeleteHistoryModal, closeDeleteHistoryModal } from './modal.js';
 /* --------------- password history ---------------*/
 
 const STORAGE_KEY = 'passwordHistory';
+const MAX_HISTORY_ITEMS = 50;
 
 let passwordHistory = [];
 
@@ -22,6 +23,9 @@ const getPasswordHistory = () => {
 const savePasswordToHistory = (passwordEntry) => {
   try {
     passwordHistory.unshift(passwordEntry);
+    if (passwordHistory.length > MAX_HISTORY_ITEMS) {
+      passwordHistory = passwordHistory.slice(0, MAX_HISTORY_ITEMS);
+    }
     localStorage.setItem(STORAGE_KEY, JSON.stringify(passwordHistory));
   } catch (error) {
     console.error(`Error saving ${STORAGE_KEY} to localStorage:`, error);
@@ -69,14 +73,19 @@ const createHistoryItem = (passwordEntry) => {
 
 const renderHistory = () => {
   uiElements.ulPasswordHistory.replaceChildren();
-  uiElements.historyCount.textContent = `${passwordHistory.length} password${passwordHistory.length !== 1 ? 's' : ''}`;
+  uiElements.historyCount.textContent = `${passwordHistory.length} / ${MAX_HISTORY_ITEMS} password${passwordHistory.length !== 1 ? 's' : ''}`;
 
   if (!passwordHistory.length) {
     uiElements.deleteHistoryBtn.classList.add('hidden');
+    uiElements.historyCount.classList.remove('history-full');
     uiElements.ulPasswordHistory.innerHTML = `
     <li class="history__empty">No history yet</li>
     `;
     return;
+  }
+
+  if (passwordHistory.length === MAX_HISTORY_ITEMS) {
+    uiElements.historyCount.classList.add('history-full');
   }
 
   uiElements.deleteHistoryBtn.classList.remove('hidden');
