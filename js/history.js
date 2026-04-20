@@ -21,7 +21,7 @@ const getPasswordHistory = () => {
 
 const savePasswordToHistory = (passwordEntry) => {
   try {
-    passwordHistory.push(passwordEntry);
+    passwordHistory.unshift(passwordEntry);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(passwordHistory));
   } catch (error) {
     console.error(`Error saving ${STORAGE_KEY} to localStorage:`, error);
