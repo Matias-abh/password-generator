@@ -9,11 +9,11 @@ const showCopyFeedback = (generatedPassword) => {
   const originalPlaceholder = uiElements.passwordDisplay.placeholder;
   uiElements.passwordDisplay.value = "";
   uiElements.passwordDisplay.placeholder = "Copied!";
-  uiElements.copyBtn.classList.add('password-generator__copy-btn--success');
+  uiElements.copyBtn.classList.add('copy-btn--success');
   uiElements.passwordDisplay.classList.add('password-generator__password-display--success');
 
   setTimeout(() => {
-    uiElements.copyBtn.classList.remove('password-generator__copy-btn--success');
+    uiElements.copyBtn.classList.remove('copy-btn--success');
     uiElements.passwordDisplay.classList.remove('password-generator__password-display--success');
     uiElements.passwordDisplay.value = generatedPassword;
     uiElements.passwordDisplay.placeholder = originalPlaceholder;
