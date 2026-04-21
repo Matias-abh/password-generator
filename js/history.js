@@ -102,6 +102,8 @@ const handleHistoryCopyClick = async (event) => {
   const passwordToCopy = copyBtn.dataset.password;
   const isSuccessful = await copyToClipboard(passwordToCopy);
   if (!isSuccessful) return;
+  event.target.classList.add('copy-btn--success');
+  setTimeout(() => event.target.classList.remove('copy-btn--success'), 800);
   showToast();
 };
 
