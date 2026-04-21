@@ -53,11 +53,11 @@
 }
 
 .button-nav__icon {
-  width: 22px;
-  height: 22px;
+  width: 1.6em;
+  height: 1.6em;
   pointer-events: none;
 
-  transition: color 0.1s ease, scale 0.1s ease;
+  transition: color 0.1s ease, transform 0.1s ease;
 }
 
 .button-nav__text {
@@ -69,15 +69,7 @@
   transform: scale(1.06);
 }
 
-.icon-view-generator {
-  width: 1.6em;
-  height: 1.6em;
-}
 
-.icon-view-history {
-  width: 1.6em;
-  height: 1.6em;
-}
 
 /* ==========================================================================
    INTERACTIVE STATES
@@ -89,12 +81,5 @@
  */
 .button-nav__btn--active {
   background: rgba(255, 255, 255, 0.12);
-  /* border: 2px solid rgba(99, 102, 241, .6); */
   color: #fff;
 }
-/* 
-.button-nav__btn--active .button-nav__icon {
-  filter: drop-shadow(0 0 2px currentColor);
-} */
-
-/* *****************************/
