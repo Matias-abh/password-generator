@@ -10,3 +10,13 @@ body {
   color: var(--color-text);
   background: radial-gradient(circle at top, #0f172a, #020617);
 }
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-1);
+}
