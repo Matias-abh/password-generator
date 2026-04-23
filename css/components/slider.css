@@ -45,7 +45,7 @@
 
 .password-generator__range-value {
   font-size: var(--text-xs);
-  color: var(--color-secondary-text);
+  color: var(--color-text-muted);
   letter-spacing: 0.5px;
   display: block;
   padding: var(--space-2) 0;
