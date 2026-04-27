@@ -45,13 +45,13 @@
         <div class="password-generator__result">
           <input type="text" id="input" class="password-generator__password-display" placeholder="Create password"
             readonly>
-          <button class="password-generator__copy-btn">
-            <i class="fa-regular fa-copy"></i>
+          <button class="password-generator__copy-btn" aria-label="Copy button">
+            <i class="fa-regular fa-copy" aria-hidden="true"></i>
           </button>
         </div>
 
-        <div class="password-strength">
-          <div class="password-strength__bars">
+        <div class="password-strength" aria-live="polite" aria-label="Password strength">
+          <div class="password-strength__bars" aria-hidden="true">
             <span class="password-strength__bar"></span>
             <span class="password-strength__bar"></span>
             <span class="password-strength__bar"></span>
@@ -76,7 +76,7 @@
             </div>
           </div>
 
-          <fieldset class="password-generator__settings">
+          <fieldset class="password-generator__settings" aria-label="Password options">
             <legend class="password-generator__settings-title">Settings</legend>
 
             <label class="settings-option">
@@ -168,12 +168,12 @@
     </button>
   </nav>
 
-  <div class="toast">Copied!</div>
+  <div class="toast" role="status" aria-live="polite">Copied!</div>
 
-  <div class="modal hidden">
+  <div class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
     <div class="modal__content">
-      <h2 class="modal__title">Delete history</h2>
-      <p class="modal__description">This action cannot be undone. Are you sure?</p>
+      <h2 class="modal__title" id="modal-title">Delete history</h2>
+      <p class="modal__description" id="modal-description">This action cannot be undone. Are you sure?</p>
 
       <div class="modal__actions">
         <button class="modal__btn modal__btn--cancel">Cancel</button>
