@@ -73,4 +73,13 @@ const focusTrap = (() => {
   return { activate, deactivate };
 })();
 
-export { openDeleteHistoryModal, closeDeleteHistoryModal };
+const initModal = () => {
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' &&
+      !uiElements.deleteHistoryModal.classList.contains('hidden')) {
+      closeDeleteHistoryModal();
+    }
+  });
+};
+
+export { openDeleteHistoryModal, closeDeleteHistoryModal, initModal };
