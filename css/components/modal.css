@@ -66,9 +66,7 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.modal__btn--cancel:hover {
-  background: rgba(255, 255, 255, 0.06);
-}
+
 
 .modal__btn--danger {
   background: #ef4444;
@@ -76,6 +74,14 @@
   font-weight: 600;
 }
 
-.modal__btn--danger:hover {
-  background: #dc2626;
+
+
+@media (hover: hover) {
+  .modal__btn--cancel:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .modal__btn--danger:hover {
+    background: #dc2626;
+  }
 }

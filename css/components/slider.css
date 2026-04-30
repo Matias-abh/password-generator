@@ -109,16 +109,20 @@
    INTERACTIVE STATES
    ========================================================================== */
 
-.slider::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.2);
-}
 
-.slider::-moz-range-thumb:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.2);
-}
+@media (hover: hover) {
 
+  .slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.2);
+  }
+  
+  .slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.2);
+  }
+}
+  
 /**
  * Keyboard Focus State
  */

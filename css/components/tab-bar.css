@@ -64,9 +64,12 @@
   pointer-events: none;
 }
 
-.button-nav__btn:hover .button-nav__icon {
-  color: rgba(99, 102, 241, .6);
-  transform: scale(1.06);
+
+@media (hover: hover) {
+  .button-nav__btn:hover .button-nav__icon {
+    color: rgba(99, 102, 241, .6);
+    transform: scale(1.06);
+  }
 }
 
 

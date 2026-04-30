@@ -8,16 +8,8 @@
    MEDIA QUERIES
    ========================================================================== */
 
-@media (min-width: 1024px) {
 
-  .header__title {
-    font-size: var(--text-3xl);
-  }
-
-  .header__subtitle {
-    font-size: var(--text-base);
-  }
-
+@media (hover: hover) {
   .password-generator__generate-btn:hover {
     transform: scale(1.02);
   }

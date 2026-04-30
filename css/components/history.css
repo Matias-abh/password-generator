@@ -92,10 +92,6 @@
   transition: border-color 0.2s ease;
 }
 
-.history-item:hover {
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
 .history-item__main {
   display: flex;
   align-items: center;
@@ -129,11 +125,6 @@
   padding: var(--space-1);
   border-radius: var(--radius-2);
   transition: color 0.15s ease, background 0.15s ease;
-}
-
-.history-item__copy-btn:hover {
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.06);
 }
 
 .history-item__meta {
@@ -254,8 +245,22 @@
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.history__delete-btn:hover {
-  background: rgba(239, 68, 68, 0.08);
-  border-color: rgba(239, 68, 68, 0.6);
-  color: #ef4444;
+
+
+
+@media (hover: hover) {
+  .history-item:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .history-item__copy-btn:hover {
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .history__delete-btn:hover {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.6);
+    color: #ef4444;
+  }
 }
