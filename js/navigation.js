@@ -1,10 +1,13 @@
 import { uiElements } from './ui.js';
 import { renderHistory } from './history.js';
+import { isDesktop } from './viewport.js';
 
 
 /* --------------- switch view ---------------*/
 
 const switchView = (viewName) => {
+  if (isDesktop()) return;
+
     uiElements.views.forEach((view) => view.classList.add('hidden'));
     document.querySelector(`[data-view="${viewName}"]`).classList.remove('hidden');
     if (viewName === 'history') renderHistory();
