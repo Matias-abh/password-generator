@@ -8,6 +8,39 @@
    MEDIA QUERIES
    ========================================================================== */
 
+@media (min-width: 1024px) {
+
+  /* El app pasa a ser un grid de dos columnas */
+  .app {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 900px;
+    gap: var(--space-8);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+
+  /* Ambas vistas visibles simultáneamente */
+  .view {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* La clase hidden no oculta en desktop */
+  .view.hidden {
+    display: block;
+  }
+
+  /* El tab bar desaparece */
+  .button-nav {
+    display: none;
+  }
+
+  /* El padding-bottom del app ya no necesita espacio para el tab bar */
+  .app {
+    padding-bottom: var(--space-12);
+  }
+}
 
 @media (hover: hover) {
   .password-generator__generate-btn:hover {
