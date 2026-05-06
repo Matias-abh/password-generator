@@ -141,19 +141,19 @@
 }
 
 .history-item__strength.weak {
-  color: #ef4444;
+  color: var(--color-strength-weak);
 }
 
 .history-item__strength.fair {
-  color: #f97316;
+  color: var(--color-strength-fair);
 }
 
 .history-item__strength.strong {
-  color: #22c55e;
+  color: var(--color-strength-strong);
 }
 
 .history-item__strength.very-strong {
-  color: #16a34a;
+  color: var(--color-strength-very-strong);
 }
 
 .history-item__date {
@@ -174,7 +174,7 @@
   font-size: var(--text-base);
   text-align: center;
   color: var(--color-text);
-  background-color: #22c55e80;
+  background-color: var(--color-strength-strong);
   backdrop-filter: blur(8px);
   border-radius: var(--radius-full);
   font-weight: 500;
@@ -261,6 +261,6 @@
   .history__delete-btn:hover {
     background: rgba(239, 68, 68, 0.08);
     border-color: rgba(239, 68, 68, 0.6);
-    color: #ef4444;
+    color: var(--color-strength-weak);
   }
 }

@@ -69,7 +69,7 @@
 
 
 .modal__btn--danger {
-  background: #ef4444;
+  background: var(--color-strength-weak);
   color: #fff;
   font-weight: 600;
 }

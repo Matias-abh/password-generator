@@ -30,6 +30,11 @@
   --color-text-muted: rgba(255, 255, 255, 0.7);   /* ratio ~5.1:1 */
   --color-text-subtle: rgba(255, 255, 255, 0.5);  /* ratio ~3.2:1 */
 
+  --color-strength-weak: #ef4444;
+  --color-strength-fair: #f97316;
+  --color-strength-strong: #22c55e;
+  --color-strength-very-strong: #16a34a;
+
   --radius-1: 4px;        /*  4px */     
   --radius-2: 8px;        /*  8px */     
   --radius-3: 12px;       /* 12px */   

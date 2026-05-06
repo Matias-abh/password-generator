@@ -51,36 +51,36 @@
 
 /* Weak State - 1st bar active */
 .password-strength.weak .password-strength__bar:nth-child(1) {
-  background-color: #ef4444;
+  background-color: var(--color-strength-weak);
 }
 
 .password-strength.weak .password-strength__label {
-  color: #ef4444;
+  color: var(--color-strength-weak);
 }
 
 /* Fair State - First 2 bars active */
 .password-strength.fair .password-strength__bar:nth-child(-n+2) {
-  background-color: #f97316;
+  background-color: var(--color-strength-fair);
 }
 
 .password-strength.fair .password-strength__label {
-  color: #f97316;
+  color: var(--color-strength-fair);
 }
 
 /* Strong State - First 3 bars active */
 .password-strength.strong .password-strength__bar:nth-child(-n+3) {
-  background-color: #22c55e;
+  background-color: var(--color-strength-strong);
 }
 
 .password-strength.strong .password-strength__label {
-  color: #22c55e;
+  color: var(--color-strength-strong);
 }
 
 /* Very Strong State - All 4 bars active */
 .password-strength.very-strong .password-strength__bar:nth-child(-n+4) {
-  background-color: #16a34a;
+  background-color: var(--color-strength-very-strong);
 }
 
 .password-strength.very-strong .password-strength__label {
-  color: #16a34a;
+  color: var(--color-strength-very-strong);
 }
